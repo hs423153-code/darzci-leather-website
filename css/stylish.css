@@ -1,0 +1,1090 @@
+/* =====================================
+   DARZCI PRODUCTS PAGE
+   Luxury Shopping UI
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --black:#111111;
+    --gold:#c8a96a;
+    --gold-dark:#9c7b3d;
+    --white:#ffffff;
+    --light:#f8f6f2;
+    --gray:#666;
+    --border:#ece7df;
+    --shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f7f3ec;
+    color:var(--black);
+    overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:#f7f3ec;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:85px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-logo{
+    width:300px;
+    height:100px;
+    object-fit:cover;
+}
+
+.brand-title{
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand-sub{
+    color:var(--gray);
+    font-size:12px;
+}
+
+.nav-link{
+    font-weight:600;
+    position:relative;
+    margin-right: 50px;
+}
+
+.nav-link.active{
+    color:var(--black-dark);
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.3s;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.mobile-toggle{
+    display:none;
+    background:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+.cart-btn{
+  position:relative;
+  transition: .3s ease;
+}
+
+.cart-btn:hover{
+  transform: translateY(-3px);
+}
+
+.cart-btn svg{
+    fill: none;
+    stroke: black;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover svg{
+    fill: black;
+    stroke: black;
+}
+
+#cartCount{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  background:var(--gold);
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+/* HAMBURGER MENU */
+@media (max-width:768px){
+
+.main-nav{
+    display:none;
+    flex-direction:column;
+
+    position:absolute;
+    top:72px;
+    left:0;
+
+    width:100%;
+
+    background:#f7f3ec;
+
+    padding:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.main-nav.active{
+    display:flex;
+}
+
+.mobile-toggle{
+    display:block;
+}
+
+@media (max-width:768px){
+
+.mobile-toggle{
+    display:block;
+    z-index:10001;
+}
+
+/* BACKDROP */
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    background:rgba(0,0,0,.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9998;
+}
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* DRAWER */
+
+.main-nav{
+
+    position:fixed;
+
+    top:0;
+    right: -320px;   
+    left: auto;
+
+    width:320px;
+    max-width:85vw;
+
+    height:100vh;
+
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:0;
+
+    transition:right .35s ease;
+
+    z-index:9999;
+
+    box-shadow:
+    -15px 0 40px rgba(0,0,0,.12);
+}
+
+.main-nav.active{
+    right:0;
+}
+
+
+/* GOLD HEADER */
+
+.main-nav::before{
+
+content:"DARZCI\APremium Leather Craft";
+
+white-space:pre-line;
+
+display:flex;
+
+align-items:center;
+
+height:120px;
+
+padding:0 28px;
+
+font-size:16px;
+
+font-weight:500;
+
+line-height:1.5;
+
+background:linear-gradient(135deg,#c8a96a,#c8a96a);
+
+color:#fff;
+
+font-family:serif;
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+flex-shrink:0;
+
+}
+
+.main-nav::after{
+
+content:"© 2026 Darzci";
+
+margin-top:auto;
+
+padding:18px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#777;
+
+border-top:1px solid #ececec;
+
+background:#faf8f4;
+
+}
+
+
+/* CROSS  */
+.mobile-toggle{
+    font-size:28px;
+    background:none;
+    border:none;
+}
+
+.mobile-toggle.active{
+    color:#c8a96a;
+}
+
+/* LINKS */
+
+.main-nav .nav-link{
+
+padding:20px 28px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:black;
+
+text-decoration:none;
+
+border-bottom:1px solid #ececec;
+
+transition:.3s;
+
+}
+
+
+.main-nav .nav-link:hover{
+
+    background:#faf8f3;
+
+    color:#c8a96a;
+}
+
+}
+}
+
+
+/* SEARCH BAR */
+.search-wrapper{
+
+max-width:500px;
+
+margin:30px auto;
+}
+
+#searchProducts{
+
+width:100%;
+
+padding:15px 20px;
+
+background:#f7f3ec;
+
+border:1px solid rgba(212,175,55,.4);
+
+color:var(--gold);
+
+border-radius:40px;
+
+font-size:15px;
+
+outline:none;
+}
+
+#searchProducts:focus{
+
+border-color:#d4af37;
+
+box-shadow:
+0 0 20px rgba(212,175,55,.2);
+}
+
+/* CATEGORY NAV */
+.category-nav{
+
+display:flex;
+justify-content:center;
+gap:15px;
+
+flex-wrap:wrap;
+
+margin:40px 0;
+}
+
+.filter-btn{
+
+background:transparent;
+
+border:1px solid #d4af37;
+
+color:#d4af37;
+
+padding:12px 24px;
+
+border-radius:40px;
+
+font-size:14px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s ease;
+}
+
+.filter-btn:hover{
+
+background:#d4af37;
+
+color:#111;
+
+transform:translateY(-2px);
+}
+
+.filter-btn.active{
+
+background:#d4af37;
+
+color:#111;
+}
+
+.filter-btn{
+  padding:12px 24px;
+  border:1px solid #c8a96b;
+  color:#c8a96b;
+  text-decoration:none;
+  border-radius:30px;
+  transition:.3s;
+}
+
+.filter-btn:hover{
+  background:#c8a96b;
+  color:#111;
+}
+
+.filter-btn.active{
+  background:#c8a96b;
+  color:#111;
+  box-shadow:0 0 15px rgba(200,169,107,.4);
+}
+/* BUTTONS */
+
+.btn{
+    padding:12px 26px;
+    border-radius:40px;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.btn-outline{
+    border:1px solid var(--black);
+}
+
+.btn-outline:hover{
+    background:var(--black);
+    color:white;
+}
+
+.product-card .btn{
+    background:var(--black);
+    color:white;
+}
+
+.product-card .btn:hover{
+    background:var(--gold-dark);
+    transform:translateY(-2px);
+}
+
+/* MAIN */
+
+main{
+    padding-top:50px;
+    padding-bottom:80px;
+}
+
+.section-title{
+    font-size:42px;
+    margin:60px 0 35px;
+    position:relative;
+    display:inline-block;
+}
+
+.section-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:65%;
+    height:3px;
+    background:var(--gold);
+}
+
+/* PRODUCT GRID */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.product-card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition:.35s;
+    border:1px solid transparent;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--gold);
+}
+
+.product-card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    transition: 5s;
+}
+
+.product-card:hover img{
+  transform:scale(1.08);
+}
+
+.product-card h3{
+    font-size:21px;
+    line-height:1.35;
+    padding:22px 18px 10px;
+    min-height:90px;
+}
+
+.price{
+    padding:0 18px 18px;
+    color:var(--gold-dark);
+    font-size:18px;
+    font-weight:800;
+}
+
+.product-card .btn{
+    margin:0 18px 22px;
+}
+
+/* =========================
+   BESTSELLER BADGE
+========================= */
+
+.product-card{
+    position:relative;
+}
+
+/* PREMIUM BESTSELLER BADGE */
+
+.bestseller-badge{
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    padding:8px 18px;
+
+    background:linear-gradient(
+        135deg,
+        #b8860b,
+        #d4af37,
+        #f5d76e
+    );
+
+    color:#111;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    border-radius:50px;
+
+    box-shadow:
+        0 6px 15px rgba(212,175,55,.35);
+
+    z-index:10;
+
+    transition:.3s ease;
+}
+
+.product-card:hover .bestseller-badge{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(212,175,55,.45);
+}
+
+
+/* =========================
+   PRODUCT RATING
+========================= */
+.product-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:10px 0 16px;
+}
+
+.stars{
+
+    color:#d4af37;
+
+    font-size:22px;   /* pehle 16px tha */
+
+    letter-spacing:3px;
+
+    line-height:1;
+
+    font-weight:700;
+
+}
+
+.review-count{
+
+    color:#777;
+
+    font-size:13px;
+
+    font-weight:500;
+}
+
+/* FOOTER */
+.site-footer{
+
+  margin-top:120px;
+  
+  background:var(--black);
+  color:white;
+  padding:70px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo-circle{
+  height: 180px;
+  width:250px;
+}
+
+.footer-column h4{
+  margin-bottom:18px;
+}
+
+.footer-link{
+  color:#ccc;
+  margin-bottom:8px;
+  display:block;
+}
+
+.footer-link:hover{
+  color:var(--gold);
+}
+
+.instagram-icon{
+  width:26px;
+  fill:#ccc;
+}
+.instagram-icon:hover{
+  fill:#E1306C;
+  stroke:#E1306C;
+}
+.Facebook-icon{
+  width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+.Facebook-icon:hover{
+  fill:darkblue;
+}
+.linkedin-icon{
+    width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+
+.linkedin-icon:hover{
+    fill:#0a66c2;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:45px;
+  padding-top:20px;
+  text-align:center;
+  color:#bbb;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* =================================
+   MOBILE HEADER FIX
+================================= */
+
+@media (max-width:900px){
+
+.site-header{
+    width:100%;
+}
+
+.header-inner{
+    min-height:70px;
+    padding:0 15px;
+}
+
+.brand-logo{
+    width:170px;
+    height:auto;
+}
+
+/* Desktop nav hide */
+
+
+/* Mobile menu icon */
+
+.mobile-toggle{
+    display:block;
+    font-size:28px;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+/* Search */
+
+.search-wrapper{
+    width:100%;
+    max-width:250px;
+    margin:15px auto;
+}
+
+/* Header icons */
+
+.header-actions{
+    gap:12px;
+}
+
+.cart-btn svg{
+    width:24px;
+    height:24px;
+}
+
+/* Mobile dropdown menu */
+/* HAMBURGER MENU */
+@media (max-width:768px){
+
+
+
+.mobile-toggle{
+    display:block;
+}
+
+
+@media (max-width:768px){
+
+
+.mobile-toggle{
+    display:block;
+    z-index:10001;
+}
+
+
+/* BACKDROP */
+
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+
+    background:rgba(0,0,0,.08);
+
+
+    opacity:0;
+    visibility:hidden;
+
+
+    transition:.35s;
+
+
+    z-index:9998;
+}
+
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+
+
+/* DRAWER */
+
+
+
+
+
+/* GOLD HEADER */
+
+
+/* CROSS  */
+.mobile-toggle{
+    font-size:28px;
+    background:none;
+    border:none;
+}
+
+
+.mobile-toggle.active{
+    color:#c8a96a;
+}
+
+
+/* LINKS */
+
+
+
+
+
+
+}
+}
+}
+/* HAMBURGER MENU */
+@media (max-width:768px){
+
+
+
+
+
+
+.mobile-toggle{
+    display:block;
+}
+
+
+@media (max-width:768px){
+
+
+.mobile-toggle{
+    display:block;
+    z-index:10001;
+}
+
+
+/* BACKDROP */
+
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+
+    background:rgba(0,0,0,.08);
+
+
+    opacity:0;
+    visibility:hidden;
+
+
+    transition:.35s;
+
+
+    z-index:9998;
+}
+
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+
+
+/* CROSS  */
+.mobile-toggle{
+    font-size:28px;
+    background:none;
+    border:none;
+}
+
+
+.mobile-toggle.active{
+    color:#c8a96a;
+}
+
+
+/* LINKS */
+
+
+
+}
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width:600px){
+
+.brand-logo{
+    width:140px;
+}
+
+.header-inner{
+    min-height:65px;
+}
+
+.header-actions{
+    gap:10px;
+}
+
+.mobile-toggle{
+    font-size:24px;
+}
+
+}
+
+@media(max-width:1100px){
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:2fr;
+    }
+
+}
+
+@media(max-width:900px){
+
+
+    .mobile-toggle{
+        display:block;
+    }
+
+    .brand-logo{
+        width:220px;
+        height:auto;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mobile-toggle{
+        display:block;
+    }
+.footer-grid{
+        grid-template-columns:2fr;
+    }
+}
+
+@media (max-width:900px){
+
+    .mobile-toggle{
+        display:block;
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:95%;
+    }
+
+    .header-inner{
+        min-height:70px;
+    }
+
+    .brand-logo{
+        width:170px;
+        height:auto;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .product-card h3{
+        font-size:14px;
+        min-height:auto;
+        padding:12px;
+    }
+
+    .price{
+        font-size:15px;
+        padding:0 12px 12px;
+    }
+
+    .product-card .btn{
+        margin:0 12px 12px;
+        width:calc(100% - 24px);
+        text-align:center;
+        padding:10px;
+        font-size:12px;
+    }
+
+    .category-nav{
+        gap:8px;
+    }
+
+    .filter-btn{
+        padding:10px 16px;
+        font-size:12px;
+    }
+
+    .footer-grid{
+        grid-template-columns:2fr;
+        text-align:center;
+    }
+
+    .footer-logo-circle{
+        width:180px;
+        height:auto;
+        margin:auto;
+    }
+
+}
+

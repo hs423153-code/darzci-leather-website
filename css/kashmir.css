@@ -1,0 +1,878 @@
+/* ==========================================
+   KASHMIR THEME CSS
+========================================== */
+
+:root{
+    --forest:#1f4d3a;
+    --pine:#2f6b52;
+    --sage:#7ea98a;
+    --mist:#eef4ef;
+    --snow:#ffffff;
+    --gold:#b89b5e;
+    --text:#1f2f26;
+    --soft:#5d6f66;
+}
+
+/* ==========================================
+   GLOBAL
+========================================== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:'Inter',sans-serif;
+    background:var(--mist);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+section{
+    padding:100px 6%;
+}
+
+h1,h2,h3{
+    font-family:'Playfair Display',serif;
+    margin:0;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.destination-hero{
+
+    min-height:80vh;
+    height:80vh;
+
+    position:relative;
+    overflow:hidden;
+    padding:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+/* VIDEO YA IMAGE DONO KE LIYE */
+
+.destination-hero video,
+.destination-hero img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    display:block;
+
+}
+
+.destination-hero::after{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.55)
+    );
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:90%;
+    max-width:1000px;
+
+    text-align:center;
+
+    color:#fff;
+
+    z-index:2;
+
+}
+
+.hero-overlay h1{
+
+    font-size:clamp(3.5rem,7vw,5rem);
+
+    letter-spacing:2px;
+
+    line-height:1.05;
+
+    margin-bottom:20px;
+
+}
+
+.hero-overlay p{
+
+    font-size:1.15rem;
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    line-height:1.8;
+
+}
+
+.hero-btn{
+
+    display:inline-block;
+
+    padding:16px 38px;
+
+    background:#d4af37;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.hero-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(212,175,55,.45);
+
+}
+
+.back-btn{
+
+    position:absolute;
+
+    top:30px;
+    left:30px;
+
+    z-index:5;
+
+    padding:12px 24px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   SECTION HEADER
+========================================== */
+
+.section-header{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-header h2{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.section-header p{
+    font-size:1.1rem;
+    color:var(--soft);
+}
+
+/* ==========================================
+   PRODUCT CARDS
+========================================== */
+
+.product-grid{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.product-card{
+    width:320px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f8fbf8 0%,
+        #e5efe8 100%
+    );
+
+    border-radius:28px;
+    overflow:hidden;
+    position:relative;
+
+    transition:.45s;
+
+    box-shadow:
+    0 15px 35px
+    rgba(31,77,58,.08);
+
+    border:
+    1px solid
+    rgba(47,107,82,.18);
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 25px 50px
+    rgba(31,77,58,.18);
+
+    border-color:var(--pine);
+}
+
+.product-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    display:block;
+}
+
+.badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+
+    padding:10px 18px;
+
+    background:
+    rgba(31,77,58,.92);
+
+    color:white;
+
+    border-radius:50px;
+    font-size:.8rem;
+    font-weight:700;
+}
+
+.product-card h3{
+    font-size:1.5rem;
+    padding:25px 25px 10px;
+}
+
+.product-card p{
+    padding:0 25px;
+    line-height:1.8;
+    color:var(--soft);
+}
+
+.product-price{
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--forest);
+    margin-top:15px;
+}
+
+.product-card a{
+    display:inline-block;
+    margin:25px;
+
+    padding:14px 28px;
+
+    background:var(--forest);
+    color:white;
+
+    text-decoration:none;
+    border-radius:50px;
+
+    font-weight:700;
+    transition:.3s;
+}
+
+.product-card a:hover{
+    background:var(--pine);
+}
+
+/* ==========================================
+   WHY SECTION
+========================================== */
+
+.travel-benefits{
+    background:white;
+}
+
+.travel-benefits h2{
+    text-align:center;
+    font-size:4rem;
+    margin-bottom:60px;
+}
+
+.benefit-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+.benefit-card{
+    background:#f3f8f4;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 25px
+    rgba(31,77,58,.06);
+}
+
+.benefit-card h3{
+    margin-bottom:15px;
+    font-size:1.6rem;
+}
+
+.benefit-card p{
+    line-height:1.8;
+    color:var(--soft);
+}
+
+/* ==========================================
+   STORY SECTION
+========================================== */
+
+.travel-story{
+    height:600px;
+
+    background:
+    url("image/kashmir-story.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.travel-story::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    rgba(20,55,40,.50);
+}
+
+.story-overlay{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:white;
+}
+
+.story-overlay h2{
+    font-size:5rem;
+    margin-bottom:20px;
+}
+
+.story-overlay p{
+    font-size:1.3rem;
+}
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+.destination-gallery{
+    background:#ffffff;
+}
+
+.destination-gallery h2{
+    text-align:center;
+    font-size:4rem;
+    margin-bottom:60px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+
+    border-radius:25px;
+
+    transition:.4s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* ==========================================
+   EXPLORE MORE
+========================================== */
+
+.explore-more{
+    background:var(--mist);
+}
+
+.explore-more h2{
+    text-align:center;
+    font-size:4rem;
+    margin-bottom:60px;
+}
+
+.destination-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+}
+
+.destination-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    text-decoration:none;
+}
+
+.destination-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+
+    transition:.5s;
+}
+
+.destination-card:hover img{
+    transform:scale(1.08);
+}
+
+.destination-card span{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+
+    color:white;
+
+    font-size:2rem;
+
+    font-family:'Playfair Display',serif;
+
+    text-shadow:
+    0 4px 15px
+    rgba(0,0,0,.6);
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    .hero-overlay h1{
+        font-size:3.5rem;
+    }
+
+    .section-header h2,
+    .travel-benefits h2,
+    .destination-gallery h2,
+    .explore-more h2{
+        font-size:2.5rem;
+    }
+
+    .story-overlay h2{
+        font-size:3rem;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-card{
+        width:100%;
+        max-width:340px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE PRODUCT SLIDER
+========================================== */
+
+@media (max-width:768px){
+
+.destination-grid{
+
+display:flex;
+
+overflow-x:auto;
+
+gap:18px;
+
+padding:0 18px 15px;
+
+scroll-snap-type:x mandatory;
+
+scroll-behavior:smooth;
+
+-webkit-overflow-scrolling:touch;
+
+}
+
+.destination-grid::-webkit-scrollbar{
+
+display:none;
+
+}
+
+.destination-card{
+
+flex:0 0 78%;
+
+scroll-snap-align:start;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.destination-card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+.destination-content{
+
+padding:16px;
+
+}
+
+.destination-content h3{
+
+font-size:1.1rem;
+
+margin-bottom:8px;
+
+}
+
+.destination-content p{
+
+font-size:.88rem;
+
+line-height:1.6;
+
+margin-bottom:15px;
+
+}
+
+.destination-content .btn{
+
+display:block;
+
+width:100%;
+
+padding:12px;
+
+font-size:.9rem;
+
+text-align:center;
+
+}
+
+}
+
+/* ==========================================
+   MOBILE (MAX 768PX)
+========================================== */
+
+@media (max-width:768px){
+
+/* ---------- HERO ---------- */
+
+.destination-hero{
+    height:65vh;
+    min-height:65vh;
+}
+
+.hero-overlay{
+    width:92%;
+}
+
+.hero-overlay h1{
+    font-size:2.6rem;
+    line-height:1.15;
+    letter-spacing:1px;
+}
+
+.hero-overlay p{
+    font-size:.95rem;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    padding:14px 28px;
+    font-size:.95rem;
+}
+
+.back-btn{
+    top:18px;
+    left:18px;
+    padding:10px 18px;
+    font-size:.9rem;
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+
+.section-header{
+    margin-bottom:40px;
+}
+
+.section-header h2,
+.travel-benefits h2,
+.destination-gallery h2,
+.explore-more h2{
+
+    font-size:2rem;
+
+}
+
+.section-header p{
+    font-size:.95rem;
+}
+
+/* ---------- PRODUCT SLIDER ---------- */
+
+.product-grid{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:16px;
+
+    padding:0 16px 15px;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+.product-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.product-card{
+
+    flex:0 0 72%;
+
+    scroll-snap-align:start;
+
+    border-radius:18px;
+
+}
+
+.product-card img{
+
+    height:180px;
+
+}
+
+.product-card h3{
+
+    font-size:1.2rem;
+
+    padding:18px 18px 8px;
+
+}
+
+.product-card p{
+
+    padding:0 18px;
+
+    font-size:.9rem;
+
+}
+
+.product-card a{
+
+    margin:18px;
+
+    width:calc(100% - 36px);
+
+    text-align:center;
+
+    padding:12px;
+
+}
+
+/* ---------- BENEFITS ---------- */
+
+.benefit-grid{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+}
+
+.benefit-card{
+
+    padding:28px;
+
+}
+
+.benefit-card h3{
+
+    font-size:1.3rem;
+
+}
+
+/* ---------- STORY ---------- */
+
+.travel-story{
+
+    height:420px;
+
+}
+
+.story-overlay h2{
+
+    font-size:2.4rem;
+
+}
+
+.story-overlay p{
+
+    font-size:1rem;
+
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery-grid{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:15px;
+
+    padding-bottom:10px;
+
+    scroll-snap-type:x mandatory;
+
+}
+
+.gallery-grid::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.gallery-grid img{
+
+    flex:0 0 80%;
+
+    height:220px;
+
+    scroll-snap-align:start;
+
+    border-radius:18px;
+
+}
+
+/* ---------- EXPLORE MORE ---------- */
+
+.destination-grid{
+
+    display:flex;
+
+    overflow-x:auto;
+
+    gap:16px;
+
+    padding:0 16px 15px;
+
+    scroll-snap-type:x mandatory;
+
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+.destination-grid::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.destination-card{
+
+    flex:0 0 72%;
+
+    scroll-snap-align:start;
+
+    border-radius:18px;
+
+}
+
+.destination-card img{
+
+    height:220px;
+
+}
+
+.destination-card span{
+
+    font-size:1.5rem;
+
+    left:16px;
+
+    bottom:16px;
+
+}
+
+}

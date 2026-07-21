@@ -1,0 +1,1271 @@
+/* ========================================
+   DARZCI - PREMIUM SHOPPING UI
+   Theme: Luxury Black + Warm Gold + White
+======================================== */
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f7f3ec;
+  color:#111;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+ul{
+  list-style:none;
+}
+
+button,input{
+  border:none;
+  outline:none;
+  font-family:inherit;
+}
+
+/* VARIABLES */
+:root{
+  --black:#111111;
+  --gold:#c7a56a;
+  --gold-dark:#9f7b3f;
+  --white:#ffffff;
+  --light:#f5f3ef;
+  --gray:#777;
+  --border:#e7e2da;
+  --shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+/* GLOBAL */
+.container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2,h3,h4{
+  font-family:'Playfair Display',serif;
+  letter-spacing:.3px;
+}
+
+/* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#f7f3ec;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:85px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  width:300px;
+  height:100px;
+  object-fit:cover;
+}
+
+.brand-title{
+  font-size:22px;
+  font-weight:800;
+}
+
+.brand-sub{
+  font-size:12px;
+  color:var(--gray);
+}
+
+/* NAV */
+.main-nav{
+  display:flex;
+  gap:35px;
+}
+
+.nav-link{
+  position:relative;
+  font-weight:600;
+  font-size:15px;
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.3s;
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
+.cart-btn{
+  position:relative;
+  transition: .3s ease;
+}
+
+.cart-btn:hover{
+  
+  transform: translateY(-3px);
+}
+
+.cart-btn svg{
+    fill: none;
+    stroke: black;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover svg{
+    fill: black;
+    stroke: black;
+}
+
+#cartCount{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  background:var(--gold);
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+/* ==================================
+   MOBILE HEADER
+================================== */
+
+@media (max-width:768px){
+
+.header-inner{
+
+    min-height:70px;
+
+    padding:0 15px;
+}
+
+/* Logo */
+
+.brand-logo{
+    width:140px;
+    height:auto;
+}
+
+/* Hide desktop nav */
+
+.main-nav{
+    display:none;
+}
+
+/* Category navbar */
+
+.navbar{
+
+    overflow-x:auto;
+
+    padding:12px 15px;
+}
+
+.nav-links{
+
+    gap:22px;
+
+    min-width:max-content;
+}
+
+/* Search */
+
+.search-wrapper{
+
+    position:absolute;
+
+    top:70px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:.3s ease;
+
+    z-index:1000;
+}
+
+.search-wrapper.active{
+
+    width:90%;
+
+    opacity:1;
+}
+
+.search-wrapper input{
+
+    width:100%;
+}
+
+
+/* Cart */
+
+.cart-btn svg{
+
+    width:24px;
+    height:24px;
+}
+
+/* Hamburger */
+
+.mobile-toggle{
+
+    display:block;
+
+    width:auto;
+    height:auto;
+
+    background:none;
+
+    color:#222;
+
+    left:0;
+}
+
+/* Remove giant buttons issue */
+
+button{
+
+    left:0;
+}
+}
+
+/* BUTTONS */
+.btn{
+  padding:13px 28px;
+  font-size:14px;
+  font-weight:600;
+  border-radius:50px;
+  transition:.35s;
+  cursor:pointer;
+}
+/* view detail button */
+button{
+  background:var(--black);
+  color:white;
+  position:relative;
+  left: 60px;
+  height: 50px;
+  width: 180px;
+  border-radius: 50px;
+}
+
+button:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+.btn-primary{
+  background:var(--black);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  border:1px solid var(--black);
+  color:var(--red);
+  border-radius: 40px;
+  border-color:var(--white);
+  position: relative;
+  left: 50px;
+}
+
+.btn-outline:hover{
+  background:var(--gold);
+  color:rgb(255, 255, 255);
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+/* HEADER ACTIONS */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.cart-btn{
+  position:relative;
+  transition: .3s ease;
+}
+
+.cart-btn:hover{
+  
+  transform: translateY(-3px);
+}
+
+.cart-btn img{
+  width:26px;
+}
+
+.cart-count{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  background:var(--gold);
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.mobile-toggle{
+  display:none;
+  font-size:26px;
+  background:none;
+  cursor:pointer;
+}
+
+/* =========================================
+              CONTACT HERO
+========================================= */
+
+.contact-hero{
+  width:90%;
+  max-width:1000px;
+
+  margin:140px auto 100px;
+
+  text-align:center;
+}
+
+.contact-tag{
+  color:#c8a96a;
+
+  letter-spacing:3px;
+
+  font-size:13px;
+  font-weight:700;
+
+  margin-bottom:18px;
+}
+
+.contact-hero h1{
+  font-size:72px;
+
+  line-height:1.05;
+
+  margin-bottom:25px;
+
+  color:#111;
+}
+
+.contact-sub{
+  font-size:18px;
+
+  line-height:1.9;
+
+  color:#666;
+
+  max-width:750px;
+
+  margin:auto;
+}
+
+
+
+/* =========================================
+             CONTACT SECTION
+========================================= */
+
+.contact-section{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+
+  gap:50px;
+
+  align-items:start;
+
+  padding-bottom:120px;
+}
+
+
+
+/* LEFT INFO */
+
+.contact-info{
+  display:flex;
+  flex-direction:column;
+
+  gap:25px;
+}
+
+/* CARD */
+
+.contact-card{
+  display:flex;
+  align-items:center;
+
+  gap:20px;
+
+  background:white;
+
+  padding:28px;
+
+  border-radius:24px;
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,.06);
+
+  transition:.35s ease;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+
+  border-left:4px solid #c8a96a;
+}
+
+.contact-card span{
+  width:58px;
+  height:58px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:rgba(200,169,106,.12);
+
+  color:#c8a96a;
+
+  font-size:24px;
+
+  flex-shrink:0;
+}
+
+.contact-card h3{
+  font-size:24px;
+
+  margin-bottom:6px;
+}
+
+.contact-card p{
+  color:#666;
+
+  line-height:1.7;
+}
+
+
+
+/* =========================================
+               CONTACT FORM
+========================================= */
+
+.contact-form-wrap{
+  background:white;
+
+  padding:45px;
+
+  border-radius:32px;
+
+  box-shadow:
+  0 15px 45px rgba(0,0,0,.07);
+}
+
+/* FORM */
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+
+  gap:22px;
+}
+
+/* INPUTS */
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+
+  padding:18px 22px;
+
+  border-radius:18px;
+
+  border:1px solid #e7e2da;
+
+  background:#faf9f7;
+
+  font-size:15px;
+
+  transition:.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#c8a96a;
+
+  background:white;
+}
+
+.contact-form textarea{
+  resize:none;
+}
+
+
+
+/* =========================================
+              CONTACT BANNER
+========================================= */
+
+.contact-banner{
+  position:relative;
+
+  width:90%;
+  max-width:1400px;
+
+  margin:0 auto 130px;
+
+  height:500px;
+
+  border-radius:36px;
+
+  overflow:hidden;
+}
+
+/* IMAGE */
+
+.contact-banner img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+/* OVERLAY */
+
+.contact-banner-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    to right,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.2)
+  );
+
+  display:flex;
+  align-items:center;
+
+  padding-left:90px;
+}
+
+.contact-banner-overlay h2{
+  color:white;
+
+  font-size:68px;
+
+  line-height:1.08;
+
+  max-width:700px;
+}
+
+/* THANK YOU */
+.success-box{
+
+margin-top:25px;
+
+padding:25px;
+
+background:#f7f3ec;
+
+border:2px solid #c8a96a;
+
+border-radius:18px;
+
+text-align:center;
+
+}
+
+.success-box h3{
+
+color:#b88a32;
+
+margin-bottom:10px;
+
+}
+
+.success-box p{
+
+color:#555;
+
+line-height:1.7;
+
+}
+
+.error-box{
+
+margin-top:20px;
+
+padding:20px;
+
+background:#ffe8e8;
+
+border-radius:15px;
+
+color:#c0392b;
+
+text-align:center;
+
+}
+
+
+
+/* =========================================
+                   FAQ
+========================================= */
+
+.faq-section{
+  padding-bottom:120px;
+}
+
+.faq-tag{
+  text-align:center;
+
+  color:#c8a96a;
+
+  letter-spacing:3px;
+
+  font-size:13px;
+  font-weight:700;
+
+  margin-bottom:18px;
+}
+
+.faq-title{
+  text-align:center;
+
+  font-size:58px;
+
+  margin-bottom:70px;
+}
+
+/* GRID */
+
+.faq-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+
+  gap:30px;
+}
+
+/* CARD */
+
+.faq-card{
+  background:white;
+
+  padding:40px 35px;
+
+  border-radius:28px;
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,.06);
+
+  transition:.35s ease;
+}
+
+.faq-card:hover{
+  transform:translateY(-8px);
+
+  border-top:3px solid #c8a96a;
+}
+
+.faq-card h3{
+  font-size:28px;
+
+  margin-bottom:18px;
+}
+
+.faq-card p{
+  color:#666;
+
+  line-height:1.9;
+}
+
+
+
+/* =========================================
+                RESPONSIVE
+========================================= */
+
+@media(max-width:992px){
+
+  .contact-section{
+    grid-template-columns:1fr;
+  }
+
+  .faq-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .contact-hero h1,
+  .contact-banner-overlay h2,
+  .faq-title{
+    font-size:46px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .faq-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-hero h1,
+  .contact-banner-overlay h2,
+  .faq-title{
+    font-size:34px;
+  }
+
+  .contact-banner{
+    height:380px;
+  }
+
+  .contact-banner-overlay{
+    padding:40px;
+  }
+
+  .contact-form-wrap{
+    padding:30px;
+  }
+
+}
+/* FOOTER */
+.site-footer{
+
+  margin-top:120px;
+  
+  background:var(--black);
+  color:white;
+  padding:70px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo-circle{
+  height: 180px;
+  width:250px;
+}
+
+.footer-column h4{
+  margin-bottom:18px;
+}
+
+.footer-link{
+  color:#ccc;
+  margin-bottom:8px;
+  display:block;
+}
+
+.footer-link:hover{
+  color:var(--gold);
+}
+
+.instagram-icon{
+  width:26px;
+  fill:#ccc;
+}
+.instagram-icon:hover{
+  fill:#E1306C;
+  stroke:#E1306C;
+}
+.Facebook-icon{
+  width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+.Facebook-icon:hover{
+  fill:darkblue;
+}
+.linkedin-icon{
+  width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+.linkedin-icon:hover{
+  fill:#0a66c2;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:45px;
+  padding-top:20px;
+  text-align:center;
+  color:#bbb;
+}
+
+/* =========================================
+            FOOTER MOBILE FIX
+========================================= */
+
+@media (max-width:768px){
+
+.site-footer{
+    margin-top:60px;
+    padding:50px 0 20px;
+}
+
+.footer-grid{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:35px;
+
+    text-align:center;
+}
+
+.footer-column{
+    width:100%;
+}
+
+.footer-logo-circle{
+
+    width:180px;
+    height:auto;
+
+    margin:0 auto 15px;
+}
+
+.footer-column h4{
+
+    margin-bottom:12px;
+
+    font-size:18px;
+}
+
+.footer-link{
+
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.social-icons{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:15px;
+}
+
+.instagram-icon,
+.Facebook-icon,
+.linkedin-icon{
+
+    width:28px;
+    margin:0;
+}
+
+.footer-bottom{
+
+    margin-top:30px;
+    padding-top:15px;
+
+    font-size:13px;
+    line-height:1.6;
+}
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+
+  .main-nav{
+    display:none;
+  }
+
+  .mobile-toggle{
+    display:block;
+  }
+
+  .product-track{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero-title{
+    font-size:48px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .product-track{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-title{
+    font-size:38px;
+  }
+
+  .hero-cta{
+    flex-direction:column;
+  }
+}
+
+/* HAMBURGER MENU */
+@media (max-width:768px){
+
+.main-nav{
+    display:none;
+    flex-direction:column;
+
+    position:absolute;
+    top:72px;
+    left:0;
+
+    width:100%;
+
+    background:#f7f3ec;
+
+    padding:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.main-nav.active{
+    display:flex;
+}
+
+.mobile-toggle{
+    display:block;
+}
+
+@media (max-width:768px){
+
+.mobile-toggle{
+    display:block;
+    z-index:10001;
+}
+
+/* BACKDROP */
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    background:rgba(0,0,0,.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9998;
+}
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* DRAWER */
+
+.main-nav{
+
+    position:fixed;
+
+    top:0;
+    right: -320px;   
+    left: auto;
+
+    width:320px;
+    max-width:85vw;
+
+    height:100vh;
+
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:0;
+
+    transition:right .35s ease;
+
+    z-index:9999;
+
+    box-shadow:
+    -15px 0 40px rgba(0,0,0,.12);
+}
+
+.main-nav.active{
+    right:0;
+}
+
+
+/* GOLD HEADER */
+
+.main-nav::before{
+
+content:"DARZCI\APremium Leather Craft";
+
+white-space:pre-line;
+
+display:flex;
+
+align-items:center;
+
+height:120px;
+
+padding:0 28px;
+
+font-size:16px;
+
+font-weight:500;
+
+line-height:1.5;
+
+background:linear-gradient(135deg,#c8a96a,#c8a96a);
+
+color:#fff;
+
+font-family:serif;
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+flex-shrink:0;
+
+}
+
+.main-nav::after{
+
+content:"© 2026 Darzci";
+
+margin-top:auto;
+
+padding:18px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#777;
+
+border-top:1px solid #ececec;
+
+background:#faf8f4;
+
+}
+
+
+/* CROSS  */
+.mobile-toggle{
+    font-size:28px;
+    background:none;
+    border:none;
+}
+
+.mobile-toggle.active{
+    color:#c8a96a;
+}
+
+/* LINKS */
+
+.main-nav .nav-link{
+
+padding:20px 28px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:black;
+
+text-decoration:none;
+
+border-bottom:1px solid #ececec;
+
+transition:.3s;
+
+}
+
+
+.main-nav .nav-link:hover{
+
+    background:#faf8f3;
+
+    color:#c8a96a;
+}
+
+}
+}
+/* ===================================
+      SHIPPING & REFUND POLICY
+=================================== */
+
+.policy-section{
+
+    padding:90px 8%;
+
+    background:#faf7f2;
+
+}
+
+.policy-section:nth-child(even){
+
+    background:#fff;
+
+}
+
+.policy-section h2{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+    color:#111;
+
+}
+
+.policy-section>div>p{
+
+    max-width:720px;
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+.policy-box{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+
+    transition:.35s;
+
+}
+
+.policy-box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+
+}
+
+.policy-box h3{
+
+    color:#b88a32;
+
+    margin-bottom:10px;
+
+}
+
+.policy-box p{
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+@media(max-width:768px){
+
+.policy-section{
+
+padding:70px 20px;
+
+}
+
+.policy-section h2{
+
+font-size:30px;
+
+}
+
+}

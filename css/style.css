@@ -1,0 +1,5352 @@
+/* ========================================
+   DARZCI - PREMIUM SHOPPING UI
+   Theme: Luxury Black + Warm Gold + White
+======================================== */
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f7f3ec;
+  color:#111;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+ul{
+  list-style:none;
+}
+
+button,input{
+  border:none;
+  outline:none;
+  font-family:inherit;
+}
+
+/* VARIABLES */
+:root{
+  --black:#111111;
+  --gold:#c7a56a;
+  --gold-dark:#9f7b3f;
+  --white:#ffffff;
+  --light:#f5f3ef;
+  --gray:#777;
+  --border:#e7e2da;
+  --shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+/* GLOBAL */
+.container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2,h3,h4{
+  font-family:'Playfair Display',serif;
+  letter-spacing:.3px;
+}
+
+/* HEADER */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#f7f3ec;
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:85px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-logo{
+  width:300px;
+  height:100px;
+  object-fit:cover;
+}
+
+.brand-title{
+  font-size:22px;
+  font-weight:800;
+}
+
+.brand-sub{
+  font-size:12px;
+  color:var(--gray);
+}
+
+/* NAV */
+.main-nav{
+  display:flex;
+  gap:35px;
+}
+
+.nav-link{
+  position:relative;
+  font-weight:600;
+  font-size:15px;
+}
+
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--gold);
+  transition:.3s;
+}
+
+.nav-link:hover::after{
+  width:100%;
+}
+
+/* BUTTONS */
+.btn{
+  padding:13px 28px;
+  font-size:14px;
+  font-weight:600;
+  border-radius:50px;
+  transition:.35s;
+  cursor:pointer;
+}
+/* view detail button */
+button{
+  background:var(--black);
+  color:white;
+  position:relative;
+  left: 60px;
+  height: 50px;
+  width: 180px;
+  border-radius: 50px;
+}
+
+button:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+.btn-primary{
+  background:var(--black);
+  color:white;
+}
+
+.btn-primary:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+
+.btn-outline{
+  border:1px solid var(--black);
+  color:var(--red);
+  border-radius: 40px;
+  border-color:var(--white);
+  position: relative;
+  left: 50px;
+}
+
+.btn-outline:hover{
+  background:var(--gold);
+  color:rgb(255, 255, 255);
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+/* HEADER ACTIONS */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.cart-btn{
+  position:relative;
+  transition: .3s ease;
+}
+
+.cart-btn:hover{
+  
+  transform: translateY(-3px);
+}
+
+.cart-btn svg{
+    fill: none;
+    stroke: black;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover svg{
+    fill: black;
+    stroke: black;
+}
+
+#cartCount{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  background:var(--gold);
+  color:white;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.mobile-toggle{
+  display:none;
+  font-size:26px;
+  background:none;
+  cursor:pointer;
+}
+
+/* ==========================================
+        DARZCI SEARCH SYSTEM
+        PART 1
+========================================== */
+
+
+/* ==========================
+        SEARCH BUTTON
+========================== */
+
+.search-toggle{
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    justify-content:center;
+
+    left: -3px;
+
+    align-items:center;
+
+    border:none;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    color:#222;
+
+    transition:.35s ease;
+
+}
+
+.search-toggle:hover{
+
+    color:#b88b45;
+
+    transform:scale(1.08);
+
+}
+
+.search-toggle svg{
+
+    pointer-events:none;
+
+}
+
+
+
+/* ==========================
+        OVERLAY
+========================== */
+
+.search-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.42);
+
+    backdrop-filter:blur(7px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:9998;
+
+}
+
+.search-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+
+/* ==========================
+        SEARCH PANEL
+========================== */
+
+.search-panel{
+
+    position:fixed;
+
+    top:0;
+
+    right:-100%;
+
+    width:33%;
+
+    max-width:520px;
+
+    min-width:420px;
+
+    height:100vh;
+
+    background:#faf8f4;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    transition:right .45s cubic-bezier(.4,0,.2,1);
+
+    z-index:9999;
+
+    box-shadow:
+
+    -25px 0 60px rgba(0,0,0,.15);
+
+}
+
+.search-panel.active{
+
+    right:0;
+
+}
+
+
+
+/* ==========================
+        MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.search-panel{
+
+    width:100%;
+
+    min-width:100%;
+
+    max-width:100%;
+
+    right:-100%;
+
+}
+
+}
+
+/* ==========================================
+        DARZCI SEARCH SYSTEM
+        PART 2
+========================================== */
+
+
+/* ==========================
+        HEADER
+========================== */
+
+.search-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:28px 32px;
+
+    border-bottom:1px solid #ebe7df;
+
+    flex-shrink:0;
+
+}
+
+.search-header h2{
+
+    font-size:34px;
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:600;
+
+    color:#1d1d1d;
+
+    letter-spacing:.4px;
+
+}
+
+
+
+/* ==========================
+        CLOSE BUTTON
+========================== */
+
+.search-close{
+
+    width:44px;
+
+    height:44px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:50%;
+
+    left: -5px;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:#222;
+
+    transition:.35s ease;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.06);
+
+}
+
+.search-close:hover{
+
+    background:#111;
+
+    color:#fff;
+
+    transform:rotate(90deg);
+
+}
+
+
+
+/* ==========================
+        SEARCH BOX
+========================== */
+
+.search-box{
+
+    position:relative;
+
+    padding:26px 30px 10px;
+
+    flex-shrink:0;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    background:#fff;
+
+    padding:0 22px 0 58px;
+
+    font-size:16px;
+
+    color:#222;
+
+    box-shadow:
+
+    0 12px 28px rgba(0,0,0,.08);
+
+    transition:.3s ease;
+
+}
+
+.search-box input::placeholder{
+
+    color:#8b8b8b;
+
+}
+
+.search-box input:focus{
+
+    box-shadow:
+
+    0 0 0 2px rgba(199,165,106,.25),
+
+    0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+
+/* Search Icon */
+
+.search-icon{
+
+    position:absolute;
+
+    left:48px;
+
+    top:54px;
+
+    transform:translateY(-50%);
+
+    color:#888;
+
+    pointer-events:none;
+
+}
+
+
+
+/* ==========================
+        POPULAR SEARCH
+========================== */
+
+.popular-search{
+
+    padding:22px 30px;
+
+    flex-shrink:0;
+
+}
+
+.popular-search h4{
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    color:#777;
+
+    margin-bottom:18px;
+
+}
+
+.popular-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.popular-item{
+
+    border:none;
+
+    background:#fff;
+
+    color:#333;
+
+    padding:11px 18px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.3s ease;
+
+    box-shadow:
+
+    0 6px 18px rgba(0,0,0,.05);
+
+}
+
+.popular-item:hover{
+
+    background:#111;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+/* ==========================
+        MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.search-header{
+
+    padding:22px;
+
+}
+
+.search-header h2{
+
+    font-size:28px;
+
+}
+
+.search-box{
+
+    padding:20px;
+
+}
+
+.search-icon{
+
+    left:38px;
+
+    top:48px;
+
+}
+
+.popular-search{
+
+    padding:20px;
+
+}
+
+}
+
+/* ==========================================
+        DARZCI SEARCH SYSTEM
+        PART 3
+========================================== */
+
+
+/* ==========================
+        SEARCH RESULTS
+========================== */
+
+.search-results{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding:12px 30px 30px;
+
+}
+
+.search-results::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.search-results::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.search-results::-webkit-scrollbar-thumb{
+
+    background:#c7a56a;
+
+    border-radius:20px;
+
+}
+
+.search-results::-webkit-scrollbar-thumb:hover{
+
+    background:#a98447;
+
+}
+
+
+
+/* ==========================
+        RESULT CARD
+========================== */
+
+.search-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    box-shadow:
+
+    0 8px 24px rgba(0,0,0,.05);
+
+}
+
+.search-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 16px 34px rgba(0,0,0,.10);
+
+}
+
+
+
+/* Product Image */
+
+.search-card img{
+
+    width:82px;
+
+    height:82px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    flex-shrink:0;
+
+}
+
+
+
+/* Product Info */
+
+.search-info{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.search-info h3{
+
+    font-size:17px;
+
+    color:#1d1d1d;
+
+    font-family:"Playfair Display",serif;
+
+    margin-bottom:8px;
+
+    line-height:1.3;
+
+}
+
+.search-info p{
+
+    font-size:14px;
+
+    color:#777;
+
+    margin-bottom:8px;
+
+}
+
+.search-price{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#b88b45;
+
+}
+
+
+
+/* ==========================
+        EMPTY STATE
+========================== */
+
+.search-empty{
+
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    height:100%;
+
+    padding:60px 20px;
+
+    color:#777;
+
+}
+
+.search-empty svg{
+
+    margin-bottom:20px;
+
+    color:#b88b45;
+
+}
+
+.search-empty h3{
+
+    font-size:24px;
+
+    font-family:"Playfair Display",serif;
+
+    margin-bottom:12px;
+
+    color:#222;
+
+}
+
+.search-empty p{
+
+    max-width:280px;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+
+/* ==========================
+        MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.search-results{
+
+    padding:15px 20px 25px;
+
+}
+
+.search-card{
+
+    gap:14px;
+
+    padding:12px;
+
+}
+
+.search-card img{
+
+    width:72px;
+
+    height:72px;
+
+}
+
+.search-info h3{
+
+    font-size:16px;
+
+}
+
+.search-price{
+
+    font-size:17px;
+
+}
+
+.search-empty{
+
+    padding:50px 25px;
+
+}
+
+}
+
+/* ==========================================
+        DARZCI SEARCH SYSTEM
+        PART 4 (FINAL)
+========================================== */
+
+
+/* ==========================
+        OPEN ANIMATION
+========================== */
+
+.search-panel{
+
+    will-change:transform,right;
+
+}
+
+.search-panel.active{
+
+    animation:searchSlide .45s ease;
+
+}
+
+@keyframes searchSlide{
+
+    from{
+
+        opacity:.95;
+
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+/* ==========================
+        RESULT HOVER
+========================== */
+
+.search-card:hover .search-info h3{
+
+    color:#b88b45;
+
+    transition:.3s;
+
+}
+
+.search-card:hover img{
+
+    transform:scale(1.04);
+
+    transition:.35s ease;
+
+}
+
+
+/* ==========================
+        INPUT PLACEHOLDER
+========================== */
+
+.search-box input::placeholder{
+
+    transition:.3s;
+
+}
+
+.search-box input:focus::placeholder{
+
+    opacity:.45;
+
+}
+
+
+/* ==========================
+        SELECTION
+========================== */
+
+.search-box input::selection{
+
+    background:#d9bc87;
+
+    color:#111;
+
+}
+
+
+/* ==========================
+        SMOOTH SCROLL
+========================== */
+
+.search-results{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/* ==========================
+        POPULAR BUTTON ACTIVE
+========================== */
+
+.popular-item.active{
+
+    background:#111;
+
+    color:#fff;
+
+}
+
+
+/* ==========================
+        IMAGE SAFETY
+========================== */
+
+.search-card img{
+
+    display:block;
+
+    background:#f3f3f3;
+
+}
+
+
+/* ==========================
+        REMOVE BLUE TAP
+========================== */
+
+.search-toggle,
+.search-close,
+.popular-item,
+.search-card{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+
+/* ==========================
+        MOBILE IMPROVEMENTS
+========================== */
+
+@media(max-width:768px){
+
+.search-panel{
+
+    border-radius:0;
+    z-index: 20001;
+
+}
+
+.search-results{
+
+    padding-bottom:90px;
+
+}
+
+.search-card{
+
+    border-radius:16px;
+
+}
+
+.search-box input{
+
+    height:54px;
+
+    font-size:16px;
+
+}
+
+}
+
+
+/* ==========================
+        DESKTOP
+========================== */
+
+@media(min-width:769px){
+
+.search-panel{
+
+    border-left:1px solid rgba(0,0,0,.06);
+
+}
+
+}
+
+/* Categories Tabs */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 6%;
+
+    background: transparent;
+
+    background:#f7f3ec;
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    box-shadow:
+    0 4px 20px rgba(0,0,0,.05);
+}
+
+.nav-links{
+    display:flex;
+    gap:38px;
+
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#222;
+    font-weight:600;
+}
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-menu{
+    position:absolute;
+    top:45px;
+    left:0;
+
+    min-width:220px;
+
+    background:#f7f3ec;
+
+    padding:15px 0;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.12);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:.3s;
+
+    list-style:none;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:12px 20px;
+}
+
+.dropdown-menu li a:hover{
+    background:white;
+}
+
+
+/* MOBILE DROPDOWN */
+
+@media (max-width:992px){
+  
+.dropdown-menu{
+
+display:none;
+
+position:static;
+
+opacity:1;
+
+visibility:visible;
+
+transform:none;
+
+box-shadow:none;
+
+background:transparent;
+
+padding-left:15px;
+
+}
+
+.dropdown.open > .dropdown-menu{
+
+display:block;
+
+animation:fadeDown .35s ease;
+
+}
+
+}
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* ==================================
+   MOBILE HEADER
+================================== */
+
+@media (max-width:768px){
+
+.header-inner{
+
+    min-height:70px;
+
+    padding:0 15px;
+}
+
+/* Logo */
+
+.brand-logo{
+    width:140px;
+    height:auto;
+}
+
+/* Hide desktop nav */
+
+.main-nav{
+    display:none;
+}
+
+/* Category navbar */
+
+.navbar{
+
+    overflow-x:auto;
+
+    padding:12px 15px;
+}
+
+.nav-links{
+
+    gap:22px;
+
+    min-width:max-content;
+}
+
+/* Search */
+
+.search-wrapper{
+
+    position:fixed;
+
+    top:80px;
+    left:50%;
+
+    transform:translateX(-50%) translateY(-10px);
+
+    width:90%;
+
+    max-width:350px;
+
+    z-index:9999;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s ease;
+}
+
+.search-wrapper.active{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:translateX(-50%) translateY(0);
+}
+
+.search-wrapper input{
+
+    width:100%;
+}
+
+
+/* Cart */
+
+.cart-btn svg{
+
+    width:24px;
+    height:24px;
+}
+
+/* Hamburger */
+
+.mobile-toggle{
+
+    display:block;
+
+    width:auto;
+    height:auto;
+
+    background:none;
+
+    color:#222;
+
+    left:0;
+}
+
+/* Remove giant buttons issue */
+
+button{
+
+    left:0;
+}
+}
+
+/* CATEGORIES NAVBAR */
+@media (max-width:768px){
+
+.main-nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:0;
+
+    width:220px;
+
+    background:#f7f3ec;
+
+    flex-direction:column;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    z-index:1000;
+}
+
+.main-nav.active{
+    display:flex;
+}
+
+.nav-link{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+.navbar{
+
+    padding:12px 15px;
+
+    overflow-x:auto;
+
+    justify-content:flex-start;
+
+    scrollbar-width:none;
+}
+
+.navbar::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-links{
+
+    gap:24px;
+
+    min-width:max-content;
+}
+
+.nav-links a{
+
+    font-size:14px;
+
+    white-space:nowrap;
+}
+
+
+/* HAMBURGER MENU */
+@media (max-width:768px){
+
+.main-nav{
+    display:none;
+    flex-direction:column;
+
+    position:absolute;
+    top:72px;
+    left:0;
+
+    width:100%;
+
+    background:#f7f3ec;
+
+    padding:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.main-nav.active{
+    display:flex;
+}
+
+.mobile-toggle{
+    display:block;
+}
+
+@media (max-width:768px){
+
+.mobile-toggle{
+    display:block;
+    z-index:10001;
+}
+
+/* BACKDROP */
+
+.menu-backdrop{
+    position:fixed;
+    inset:0;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    background:rgba(0,0,0,.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9998;
+}
+
+.menu-backdrop.active{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* DRAWER */
+
+.main-nav{
+
+    position:fixed;
+
+    top:0;
+    right: -320px;   
+    left: auto;
+
+    width:320px;
+    max-width:85vw;
+
+    height:100vh;
+
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:0;
+
+    transition:right .35s ease;
+
+    z-index:9999;
+
+    box-shadow:
+    -15px 0 40px rgba(0,0,0,.12);
+}
+
+.main-nav.active{
+    right:0;
+}
+
+
+/* GOLD HEADER */
+
+.main-nav::before{
+
+content:"DARZCI\APremium Leather Craft";
+
+white-space:pre-line;
+
+display:flex;
+
+align-items:center;
+
+height:120px;
+
+padding:0 28px;
+
+font-size:16px;
+
+font-weight:500;
+
+line-height:1.5;
+
+background:linear-gradient(135deg,#c8a96a,#c8a96a);
+
+color:#fff;
+
+font-family:serif;
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+flex-shrink:0;
+
+}
+
+.main-nav::after{
+
+content:"© 2026 Darzci";
+
+margin-top:auto;
+
+padding:18px;
+
+text-align:center;
+
+font-size:13px;
+
+color:#777;
+
+border-top:1px solid #ececec;
+
+background:#faf8f4;
+
+}
+
+
+/* CROSS  */
+.mobile-toggle{
+    font-size:28px;
+    background:none;
+    border:none;
+}
+
+.mobile-toggle.active{
+    color:#c8a96a;
+}
+
+/* LINKS */
+
+.main-nav .nav-link{
+
+padding:20px 28px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:black;
+
+text-decoration:none;
+
+border-bottom:1px solid #ececec;
+
+transition:.3s;
+
+}
+
+
+.main-nav .nav-link:hover{
+
+    background:#faf8f3;
+
+    color:#c8a96a;
+}
+
+}
+}
+}
+
+
+/* HERO */
+/* =========================
+   HERO SLIDER
+========================= */
+
+.hero-slider{
+    position:relative;
+    width:100%;
+    height:90vh;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    z-index:0;
+    margin:0;
+    padding:0;
+}
+
+.slides{
+    display:flex;
+    height:100%;
+    transition:transform .7s ease-in-out;
+}
+
+.slide{
+    min-width:100%;
+    height:100%;
+    position:relative;
+}
+
+.slide.active{
+    left:0;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.slide picture{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+.slide picture img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* Dark Overlay */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    );
+}
+
+/* Content */
+
+.hero-content{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:90%;
+    max-width:900px;
+
+    text-align:center;
+
+    color:#fff;
+
+    z-index:5;
+}
+
+.hero-content h1{
+
+    font-size:clamp(3rem,6vw,6rem);
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+    font-family:"Playfair Display",serif;
+}
+
+.hero-content p{
+
+    font-size:1.25rem;
+
+    max-width:700px;
+
+    margin:0 auto 35px;
+
+    line-height:1.7;
+}
+
+/* Buttons */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    text-decoration:none;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s ease;
+}
+
+.btn-primary{
+
+    background:#c89f43;
+
+    color:#fff;
+}
+
+.btn-primary:hover{
+
+    background:#b78d34;
+}
+
+.btn-secondary{
+
+    border:1px solid #fff;
+
+    color:#fff;
+}
+
+.btn-secondary:hover{
+
+    background:#fff;
+
+    color:#000;
+}
+
+/* Arrows */
+
+.prev,
+.next{
+
+
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+
+
+width:60px;
+height:60px;
+
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+
+
+background:rgba(0,0,0,.28);
+backdrop-filter:blur(12px);
+
+
+color:#fff;
+font-size:34px;
+font-weight:600;
+
+
+cursor:pointer;
+z-index:100;
+
+
+transition:.35s ease;
+
+
+}
+
+
+.prev:hover,
+.next:hover{
+
+
+
+transform:translateY(-50%) scale(1.12);
+
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.35);
+
+
+}
+
+.prev{
+    position:absolute !important;
+    left:20px !important;
+    right:auto !important;
+}
+
+
+.next{
+    position:absolute !important;
+    right:20px !important;
+    left:auto !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.hero-slider{
+    height:80vh;
+}
+
+.slide img{
+    object-fit:cover;
+}
+
+.hero-content{
+
+    width:92%;
+
+    padding:0 10px;
+}
+
+.hero-content h1{
+
+    font-size:2.7rem;
+
+    margin-bottom:15px;
+}
+
+.hero-content p{
+
+    font-size:1rem;
+
+    margin-bottom:25px;
+}
+
+.hero-buttons{
+
+    gap:12px;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    padding:14px 24px;
+
+    font-size:.95rem;
+}
+
+.slider-btn{
+
+    width:48px;
+    height:48px;
+
+    font-size:1.5rem;
+}
+
+
+
+.prev,
+.next{
+
+
+width:45px;
+height:45px;
+
+
+font-size:28px;
+
+
+}
+
+
+.prev{
+left:12px;
+}
+
+
+.next{
+right:12px;
+}
+
+
+}
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.hero-slider{
+    height:75vh;
+}
+
+.hero-content h1{
+
+    font-size:2.2rem;
+}
+
+.hero-content p{
+
+    font-size:.95rem;
+}
+
+}
+/* SECTION */
+.featured{
+  background:#f7f3ec;
+}
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:45px;
+}
+
+.section-header h2{
+  font-size:42px;
+}
+
+.view-all{
+  color:var(--gold-dark);
+  font-weight:700;
+}
+
+/* PRODUCTS */
+.product-track{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.product-card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.35s;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--gold);
+  background:var(--black);
+  color:var(--white)
+}
+
+.product-card img{
+  height:320px;
+  object-fit:cover;
+}
+
+/* IMAGE + VIDEO NEW ADDED */
+/* IMAGE + VIDEO SAME FRAME */
+
+.product-card img,
+.product-card video{
+
+  width:100%;
+
+  height:320px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  display:block;
+}
+
+/* VIDEO HIDDEN */
+
+.product-card video{
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  opacity:0;
+
+  transition:.5s ease;
+}
+
+/* IMAGE CONTAINER */
+
+.product-media{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:20px;
+}
+
+/* HOVER EFFECT */
+
+.product-card:hover img{
+
+  opacity:0;
+}
+
+.product-card:hover video{
+
+  opacity:1;
+}
+
+.product-card h3{
+  font-size:22px;
+  padding:22px 20px 10px;
+}
+
+.price{
+  color:var(--gold-dark);
+  font-weight:800;
+  font-size:18px;
+  padding:0 20px 20px;
+}
+
+.product-card .btn{
+  margin:0 20px 25px;
+  display:inline-block;
+}
+
+/* ==========================================
+   PREMIUM FEATURED COLLECTION
+========================================== */
+
+.featured{
+    background:#f7f3ec;
+    padding:90px 0;
+    overflow:hidden;
+}
+
+.featured .section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:45px;
+}
+
+.featured .section-header h2{
+    font-size:42px;
+}
+
+.featured .view-all{
+    font-weight:700;
+    color:#b88a32;
+    transition:.3s;
+}
+
+.featured .view-all:hover{
+    color:#111;
+}
+
+/* ---------- SLIDER ---------- */
+
+.featured .product-track{
+
+    display:flex;
+    gap:28px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+
+    padding-bottom:15px;
+
+    -webkit-overflow-scrolling:touch;
+}
+
+.featured .product-track::-webkit-scrollbar{
+    height:8px;
+}
+
+.featured .product-track::-webkit-scrollbar-track{
+    background:#ebe4d7;
+    border-radius:20px;
+}
+
+.featured .product-track::-webkit-scrollbar-thumb{
+    background:#c8a96a;
+    border-radius:20px;
+}
+
+.featured .product-card{
+
+    flex:0 0 320px;
+
+    scroll-snap-align:start;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.featured .product-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#111;
+
+    color:#fff;
+
+    box-shadow:0 25px 55px rgba(0,0,0,.18);
+
+}
+
+.featured .product-card img,
+.featured .product-card video{
+
+    width:100%;
+    height:320px;
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.featured .product-card h3{
+
+    padding:22px 20px 10px;
+
+    font-size:22px;
+
+    line-height:1.4;
+
+}
+
+.featured .price{
+
+    padding:0 20px 18px;
+
+    font-size:19px;
+
+    color:#b88a32;
+
+    font-weight:700;
+
+}
+
+.featured .product-card .btn{
+
+    display:inline-block;
+
+    margin:0 20px 25px;
+
+}
+
+/* ---------- LAST CARD ---------- */
+
+.featured .product-track .section-header{
+
+    flex:0 0 320px;
+
+    background:#111;
+
+    border-radius:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.featured .product-track .section-header h1{
+
+    font-size:32px;
+
+    line-height:1.4;
+
+}
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:1024px){
+
+.featured .product-card{
+
+flex:0 0 290px;
+
+}
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+.featured{
+
+padding:70px 0;
+
+}
+
+.featured .section-header{
+
+padding:0 18px;
+
+}
+
+.featured .section-header h2{
+
+font-size:30px;
+
+}
+
+.featured .product-track{
+
+gap:18px;
+
+padding:0 18px 15px;
+
+}
+
+.featured .product-card{
+
+flex:0 0 82%;
+
+}
+
+.featured .product-card img,
+.featured .product-card video{
+
+height:240px;
+
+}
+
+.featured .product-card h3{
+
+font-size:18px;
+
+}
+
+.featured .product-track .section-header{
+
+flex:0 0 82%;
+
+}
+
+.featured .product-track .section-header h1{
+
+font-size:24px;
+
+}
+
+}
+
+/* ==========================================
+        PREMIUM BESTSELLER COLLECTION
+========================================== */
+
+.bestseller-section{
+
+
+padding:90px 7%;
+
+
+background:#faf7f2;
+
+
+}
+
+
+.section-heading{
+
+
+text-align:center;
+
+
+margin-bottom:55px;
+
+
+}
+
+
+.section-tag{
+
+
+display:inline-block;
+
+
+padding:8px 18px;
+
+
+border-radius:50px;
+
+
+background:#c8a96a;
+
+
+color:#fff;
+
+
+font-size:12px;
+
+
+letter-spacing:2px;
+
+
+font-weight:600;
+
+
+margin-bottom:18px;
+
+
+}
+
+
+.section-heading h2{
+
+
+font-size:42px;
+
+
+color:#2b2b2b;
+
+
+margin-bottom:15px;
+
+
+font-family:serif;
+
+
+}
+
+
+.section-heading p{
+
+
+max-width:650px;
+
+
+margin:auto;
+
+
+color:#666;
+
+
+line-height:1.8;
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+.bestseller-section{
+
+background:#f7f3ec;
+
+padding:90px 0;
+
+overflow:hidden;
+
+}
+
+.bestseller-section .section-heading{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:45px;
+
+padding:0 6%;
+
+}
+
+.bestseller-section .section-heading h2{
+
+font-size:42px;
+
+}
+
+.bestseller-section .section-tag{
+
+font-weight:700;
+
+color:#b88a32;
+
+transition:.3s;
+
+}
+
+.bestseller-section .section-tag:hover{
+
+color:#111;
+
+}
+
+/* ---------- SLIDER ---------- */
+
+.bestseller-track{
+
+display:flex;
+
+gap:28px;
+
+overflow-x:auto;
+
+overflow-y:hidden;
+
+scroll-snap-type:x mandatory;
+
+scroll-behavior:smooth;
+
+padding:0 6% 15px;
+
+-webkit-overflow-scrolling:touch;
+
+}
+
+.bestseller-track::-webkit-scrollbar{
+
+height:8px;
+
+}
+
+.bestseller-track::-webkit-scrollbar-track{
+
+background:#ebe4d7;
+
+border-radius:20px;
+
+}
+
+.bestseller-track::-webkit-scrollbar-thumb{
+
+background:#c8a96a;
+
+border-radius:20px;
+
+}
+
+/* ---------- BESTSELLER CARD ---------- */
+
+.bestseller-card{
+
+flex:0 0 320px;
+
+scroll-snap-align:start;
+
+background:#fff;
+
+border-radius:22px;
+
+overflow:hidden;
+
+box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+transition:.4s;
+
+position:relative;
+
+}
+
+.bestseller-btn{
+
+
+display:inline-block;
+
+
+padding:10px 18px;
+
+
+border-radius:30px;
+
+
+background:var(--black);
+
+
+color:#fff;
+
+
+text-decoration:none;
+
+
+font-size:14px;
+
+
+transition:.3s;
+
+
+}
+
+
+.bestseller-btn:hover{
+
+
+background:var(--gold);
+
+
+}
+
+
+.bestseller-card:hover{
+
+transform:translateY(-10px);
+
+background:#111;
+
+color:#fff;
+
+box-shadow:0 25px 55px rgba(0,0,0,.18);
+
+}
+
+/* ---------- IMAGE + VIDEO ---------- */
+
+.bestseller-media{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:22px 22px 0 0;
+
+}
+
+.bestseller-media img,
+.bestseller-media video{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+display:block;
+
+transition:.45s ease;
+
+}
+
+/* VIDEO */
+
+.bestseller-media video{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+/* HOVER */
+
+.bestseller-card:hover img{
+
+opacity:0;
+
+}
+
+.bestseller-card:hover video{
+
+opacity:1;
+
+}
+
+/* ---------- TEXT ---------- */
+
+.bestseller-card h3{
+
+padding:22px 20px 10px;
+
+font-size:22px;
+
+line-height:1.4;
+
+}
+
+.bestseller-price{
+
+padding:0 20px 18px;
+
+font-size:19px;
+
+color:#b88a32;
+
+font-weight:700;
+
+}
+
+.bestseller-card .btn{
+
+display:inline-block;
+
+margin:0 20px 25px;
+
+}
+
+/* ---------- BADGE ---------- */
+
+.best-badge{
+
+position:absolute;
+
+top:18px;
+
+left:18px;
+
+background:#c8a96a;
+
+color:#fff;
+
+padding:8px 14px;
+
+border-radius:40px;
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+z-index:5;
+
+}
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:1024px){
+
+.bestseller-card{
+
+flex:0 0 290px;
+
+}
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+.bestseller-section{
+
+padding:70px 0;
+
+}
+
+.bestseller-section .section-heading{
+
+padding:0 18px;
+
+}
+
+.bestseller-section .section-heading h2{
+
+font-size:30px;
+
+}
+
+.bestseller-track{
+
+gap:18px;
+
+padding:0 18px 15px;
+
+}
+
+.bestseller-card{
+
+flex:0 0 82%;
+
+}
+
+.bestseller-media img,
+.bestseller-media video{
+
+height:240px;
+
+}
+
+.bestseller-card h3{
+
+font-size:18px;
+
+}
+
+.bestseller-price{
+
+font-size:17px;
+
+}
+
+.bestseller-card .btn{
+
+margin:0 20px 22px;
+
+}
+
+.best-badge{
+
+top:14px;
+
+left:14px;
+
+font-size:11px;
+
+padding:7px 12px;
+
+}
+
+}
+
+/* INFO */
+
+.bestseller-info{
+
+padding:22px 20px 25px;
+
+display:flex;
+
+flex-direction:column;
+
+min-height:220px;
+
+}
+
+.bestseller-info h3{
+
+font-size:22px;
+
+line-height:1.4;
+
+margin-bottom:12px;
+
+color:inherit;
+
+min-height:62px;
+
+display:-webkit-box;
+
+-webkit-line-clamp:2;
+
+-webkit-box-orient:vertical;
+
+overflow:hidden;
+
+}
+
+
+.bestseller-price{
+
+font-size:19px;
+
+font-weight:700;
+
+color:#b88a32;
+
+margin-bottom:18px;
+
+}
+
+.bestseller-card:hover .bestseller-price{
+
+color:#d8b15a;
+
+}
+
+/* BUTTON */
+
+.bestseller-card .btn{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:170px;
+
+height:48px;
+
+margin-top:auto;
+
+border-radius:50px;
+
+background:#111;
+
+color:#fff;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+
+.bestseller-card:hover .btn{
+
+background:#c8a96a;
+
+color:#111;
+
+}
+
+/* IMAGE */
+
+.bestseller-media{
+
+height:320px;
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.bestseller-media img,
+
+.bestseller-media video{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+
+/*=====================================
+        SEASON SALE SECTION
+======================================*/
+
+.season-banner{
+
+position:relative;
+
+width:100%;
+
+height:700px;
+
+overflow:hidden;
+
+background:#111;
+
+}
+
+.season-bg{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+object-position:center;
+
+z-index:1;
+
+}
+
+.season-banner::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,.55) 0%,
+rgba(0,0,0,.20) 45%,
+rgba(0,0,0,.35) 100%
+);
+
+z-index:2;
+
+}
+
+.season-overlay{
+
+position:relative;
+
+z-index:3;
+
+height:100%;
+
+display:flex;
+
+align-items:center;
+
+padding:0 8%;
+
+}
+
+.sale-card{
+
+max-width:470px;
+
+padding:50px;
+
+background:rgba(255,250,245,.92);
+
+backdrop-filter:blur(15px);
+
+border-radius:24px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.25);
+
+}
+
+.season-tag{
+
+display:inline-block;
+
+margin-bottom:18px;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+font-weight:700;
+
+color:#8d6339;
+
+text-transform:uppercase;
+
+}
+
+.sale-card h2{
+
+font-family:"Playfair Display",serif;
+
+font-size:58px;
+
+line-height:1.08;
+
+margin-bottom:22px;
+
+color:#2d1e15;
+
+}
+
+.sale-card p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#6d5b4d;
+
+margin-bottom:35px;
+
+}
+
+.explore-btn{
+
+display:inline-block;
+
+padding:16px 38px;
+
+background:#7b3f00;
+
+color:#fff;
+
+text-decoration:none;
+
+border-radius:50px;
+
+font-weight:700;
+
+font-size:17px;
+
+transition:.35s;
+
+}
+
+.explore-btn:hover{
+
+background:#a0522d;
+
+transform:translateY(-5px);
+
+box-shadow:
+0 18px 40px rgba(123,63,0,.35);
+
+}
+
+/*=====================================
+        MOBILE
+======================================*/
+
+@media(max-width:768px){
+
+.season-banner{
+
+height:560px;
+
+}
+
+.season-banner::before{
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.35),
+rgba(0,0,0,.55)
+);
+
+}
+
+.season-overlay{
+
+justify-content:center;
+
+align-items:flex-end;
+
+padding:25px;
+
+padding-bottom:40px;
+
+}
+
+.sale-card{
+
+max-width:100%;
+
+padding:28px;
+
+border-radius:18px;
+
+text-align:center;
+
+}
+
+.season-tag{
+
+font-size:11px;
+
+letter-spacing:2px;
+
+margin-bottom:12px;
+
+}
+
+.sale-card h2{
+
+font-size:34px;
+
+margin-bottom:15px;
+
+}
+
+.sale-card p{
+
+font-size:15px;
+
+line-height:1.7;
+
+margin-bottom:22px;
+
+}
+
+.explore-btn{
+
+display:block;
+
+width:100%;
+
+padding:15px;
+
+font-size:15px;
+
+}
+
+}
+
+
+/* =====================================
+   TRAVEL WITH DARZCI
+===================================== */
+
+.travel-showcase{
+
+padding:120px 6%;
+
+background:#f7f3ec;
+
+overflow:hidden;
+
+}
+
+.travel-heading{
+
+text-align:left;
+
+font-size:5rem;
+
+font-family:"Playfair Display",serif;
+
+color:var(--black);
+
+margin-bottom:70px;
+
+letter-spacing:2px;
+
+}
+
+
+/* MAIN HERO */
+
+.travel-container{
+
+position:relative;
+
+height:850px;
+
+width:100%;
+
+border-radius:40px;
+
+overflow:hidden;
+
+display:flex;
+
+align-items:center;
+
+padding:80px;
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+transition:all 1s ease;
+
+box-shadow:
+
+0 30px 80px
+
+rgba(0,0,0,.15);
+
+}
+
+
+/* DARK OVERLAY */
+
+.travel-container::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+rgba(0,0,0,.80) 0%,
+
+rgba(0,0,0,.55) 35%,
+
+rgba(0,0,0,.15) 100%
+
+);
+
+z-index:1;
+
+}
+
+
+/* LEFT DESTINATION CARDS */
+
+.travel-cards{
+
+position:relative;
+
+z-index:2;
+
+display:flex;
+
+flex-direction:column;
+
+gap:22px;
+
+}
+
+
+/* SINGLE CARD */
+
+.travel-card{
+
+width:240px;
+
+height:140px;
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:24px;
+
+cursor:pointer;
+
+border:
+
+2px solid
+
+rgba(255,255,255,.15);
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:
+
+blur(12px);
+
+transition:.4s;
+
+}
+
+
+/* CARD IMAGE */
+
+.travel-card img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+
+/* CARD TITLE */
+
+.travel-card span{
+
+position:absolute;
+
+left:18px;
+
+bottom:14px;
+
+color:white;
+
+font-size:1rem;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+text-shadow:
+
+0 2px 10px
+
+rgba(0,0,0,.5);
+
+}
+
+
+/* ACTIVE CARD */
+
+.travel-card.active{
+
+border:
+
+3px solid #d4af37;
+
+transform:
+
+translateX(15px)
+
+scale(1.05);
+
+box-shadow:
+
+0 0 40px
+
+rgba(212,175,55,.6);
+
+}
+
+
+/* RIGHT CONTENT */
+
+.travel-content{
+
+position:absolute;
+
+right:100px;
+
+max-width:650px;
+
+z-index:2;
+
+color:white;
+
+}
+
+
+/* DESTINATION TITLE */
+
+.travel-content h3{
+
+font-size:6rem;
+
+font-family:
+
+"Playfair Display",serif;
+
+text-transform:uppercase;
+
+line-height:1;
+
+margin-bottom:25px;
+
+letter-spacing:4px;
+
+}
+
+
+/* DESCRIPTION */
+
+.travel-content p{
+
+font-size:1.25rem;
+
+line-height:2;
+
+opacity:.95;
+
+margin-bottom:35px;
+
+max-width:550px;
+
+}
+
+
+/* BUTTON */
+
+.travel-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:18px 42px;
+
+background:#d4af37;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:700;
+
+font-size:1rem;
+
+border-radius:60px;
+
+transition:.4s;
+
+box-shadow:
+
+0 10px 25px
+
+rgba(212,175,55,.25);
+
+}
+
+.travel-btn:hover{
+
+transform:
+
+translateY(-4px);
+
+box-shadow:
+
+0 15px 35px
+
+rgba(212,175,55,.45);
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.travel-container{
+
+height:auto;
+
+padding:60px 30px;
+
+flex-direction:column;
+
+gap:50px;
+
+}
+
+.travel-content{
+
+position:relative;
+
+right:auto;
+
+text-align:center;
+
+max-width:100%;
+
+}
+
+.travel-content h3{
+
+font-size:4rem;
+
+}
+
+.travel-cards{
+
+flex-direction:row;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.travel-card{
+
+width:180px;
+
+height:120px;
+
+}
+
+}
+/* =========================
+   CRAFTSMANSHIP SECTION
+========================= */
+
+.craftsmanship{
+  width:90%;
+  max-width:1400px;
+
+  margin:120px auto;
+
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:70px;
+
+  align-items:center;
+
+   background:#f3efe8;
+
+  padding:120px 80px;
+
+  border-radius:40px;
+}
+
+/* LEFT VIDEO */
+.craft-left video{
+  width:100%;
+  height:650px;
+
+  object-fit:cover;
+
+  border-radius:32px;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,0.15);
+
+  transition:0.5s ease;
+}
+
+.craft-left video:hover{
+  transform:scale(1.02);
+}
+
+/* LEFT IMAGE */
+
+.craft-left{
+  position:relative;
+}
+
+.craft-left video{
+  width:100%;
+  height:650px;
+
+  object-fit:cover;
+
+  border-radius:32px;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,0.15);
+
+  transition:0.5s ease;
+}
+
+.craft-left img{
+  width:100%;
+  height:650px;
+
+  object-fit:cover;
+
+  border-radius:32px;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,0.15);
+
+  transition:0.5s ease;
+}
+
+.craft-left img:hover{
+  transform:scale(1.02);
+}
+
+/* RIGHT CONTENT */
+
+.craft-tag{
+  color:#b89146;
+
+  letter-spacing:2px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  margin-bottom:18px;
+}
+
+.craft-right h2{
+  font-size:58px;
+
+  line-height:1.1;
+
+  margin-bottom:25px;
+
+  color:#111;
+
+  font-family:'Playfair Display',serif;
+}
+
+.craft-text{
+  color:#666;
+
+  font-size:17px;
+
+  line-height:1.9;
+
+  margin-bottom:40px;
+}
+
+/* FEATURES */
+
+.craft-features{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.craft-feature{
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  background:#fff;
+
+  padding:18px 22px;
+
+  border-radius:18px;
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,0.06);
+
+  transition:0.4s ease;
+}
+
+.craft-feature:hover{
+  transform:translateX(8px);
+
+  border-left:4px solid #b89146;
+}
+
+.craft-feature span{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:rgba(184,145,70,0.12);
+
+  color:#b89146;
+
+  font-size:18px;
+}
+
+.craft-feature p{
+  font-weight:600;
+
+  color:#222;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+  .craftsmanship{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .craft-right h2{
+    font-size:42px;
+  }
+
+  .craft-left img{
+    height:500px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .craft-right h2{
+    font-size:34px;
+  }
+
+  .craft-text{
+    font-size:15px;
+  }
+
+  .craft-left img{
+    height:400px;
+  }
+
+}
+/* WHY DARZCI */
+
+.why{
+  padding: 120px 0;
+  position: relative;
+}
+
+.center{
+  text-align:center;
+  font-size:52px;
+  margin-bottom:60px;
+  color:#060404;
+  position:relative;
+  font-family:'Playfair Display',serif;
+}
+
+.center::after{
+  content:"";
+  width:90px;
+  height:3px;
+  background:linear-gradient(to right,#c8a96a,#8b6a35);
+  display:block;
+  margin:18px auto 0;
+  border-radius:50px;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.why-card{
+  position:relative;
+  overflow:hidden;
+  padding:45px 30px;
+  border-radius:28px;
+
+ background:white;
+
+border:1px solid #eee;
+
+  text-align:center;
+
+  transition:0.5s ease;
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,0.18);
+}
+
+/* top glow line */
+.why-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(to right,#c8a96a,#8b6a35);
+  transform:scaleX(0);
+  transition:0.5s ease;
+  transform-origin:left;
+}
+
+.why-card:hover::before{
+  transform:scaleX(1);
+}
+
+/* hover animation */
+.why-card:hover{
+  transform:translateY(-10px);
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* ICON STYLE */
+.why-card i{
+  width:75px;
+  height:75px;
+  margin:auto;
+  margin-bottom:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:rgba(200,169,106,0.12);
+
+  color:#c8a96a;
+
+  font-size:32px;
+}
+
+/* TITLE */
+.why-card h3{
+  margin-bottom:16px;
+  font-size:30px;
+  color:#050303;
+}
+
+/* TEXT */
+.why-card p{
+  color:rgba(6, 4, 4, 0.72);
+  line-height:1.8;
+  font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .center{
+    font-size:38px;
+  }
+
+}
+
+/* =========================================================
+            DARZCI TESTIMONIALS V3
+                PART - 1
+=========================================================*/
+
+.testimonials{
+
+position:relative;
+
+padding:120px 0;
+
+overflow:hidden;
+
+background:
+radial-gradient(circle at top left,#faf6ef,#f4efe6 45%,#ede4d8);
+
+border-radius:45px;
+
+isolation:isolate;
+
+}
+
+/* Background Glow */
+
+.testimonials::before{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+height:650px;
+
+left:-220px;
+top:-250px;
+
+background:
+radial-gradient(circle,
+rgba(212,175,55,.12),
+transparent 70%);
+
+z-index:-2;
+
+}
+
+.testimonials::after{
+
+content:"";
+
+position:absolute;
+
+width:520px;
+height:520px;
+
+right:-180px;
+bottom:-220px;
+
+background:
+radial-gradient(circle,
+rgba(0,0,0,.05),
+transparent 70%);
+
+z-index:-2;
+
+}
+
+/* ===========================
+        Heading
+=========================== */
+
+.testi-tag{
+
+text-align:center;
+
+font-size:13px;
+
+font-weight:700;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#c8a96a;
+
+margin-bottom:18px;
+
+}
+
+.testi-title{
+
+text-align:center;
+
+font-family:'Playfair Display',serif;
+
+font-size:56px;
+
+line-height:1.2;
+
+color:#151515;
+
+margin-bottom:80px;
+
+}
+
+/* ===========================
+      CAROUSEL WRAPPER
+=========================== */
+
+.testi-wrapper{
+
+position:relative;
+
+width:100%;
+
+overflow:hidden;
+
+}
+
+/* ===========================
+        TRACK
+=========================== */
+
+.testi-track{
+
+display:flex;
+
+align-items:center;
+
+gap:30px;
+
+transition:
+transform .65s cubic-bezier(.22,.61,.36,1);
+
+will-change:transform;
+
+padding:20px 10px;
+
+}
+
+
+/* =========================================================
+            DARZCI TESTIMONIALS V3
+                PART - 2
+=========================================================*/
+
+/* ===========================
+        BASE CARD
+=========================== */
+
+.testi-card{
+
+flex:0 0 calc((100% - 60px)/3);
+
+min-width:320px;
+
+max-width:320px;
+
+min-height:340px;
+
+padding:38px 34px;
+
+border-radius:30px;
+
+position:relative;
+
+overflow:hidden;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+cursor:pointer;
+
+background:rgba(255,255,255,.78);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.45);
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.08);
+
+transition:
+
+transform .6s,
+
+opacity .6s,
+
+background .6s,
+
+box-shadow .6s,
+
+border .6s;
+
+transform:scale(.88);
+
+opacity:.58;
+
+}
+
+/* Glass Layer */
+
+.testi-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.75),
+
+rgba(255,255,255,.18)
+
+);
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+/* Quote */
+
+.testi-card::after{
+
+content:"❝";
+
+position:absolute;
+
+top:18px;
+
+right:24px;
+
+font-size:78px;
+
+font-family:serif;
+
+color:rgba(212,175,55,.12);
+
+pointer-events:none;
+
+}
+
+/* ===========================
+        ACTIVE CARD
+=========================== */
+
+.testi-card.active{
+
+
+background: #000;
+
+
+color:#fff;
+
+opacity:1;
+
+transform:scale(1.15);
+
+border:2px solid #d4af37;
+
+box-shadow:
+
+0 30px 70px rgba(0,0,0,.28),
+
+0 0 35px rgba(212,175,55,.25);
+
+z-index:20;
+
+}
+
+/* Golden Top Border */
+
+.testi-card.active::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:4px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#8b6b22,
+
+#d4af37,
+
+#f7e4a2,
+
+#d4af37
+
+);
+
+}
+
+/* ===========================
+        HOVER
+=========================== */
+
+.testi-card:hover{
+
+transform:
+
+translateY(-10px)
+
+scale(.92);
+
+box-shadow:
+
+0 22px 55px rgba(0,0,0,.14);
+
+}
+
+/* =========================================================
+            DARZCI TESTIMONIALS V3
+                PART - 3
+=========================================================*/
+
+/* ===========================
+            STARS
+=========================== */
+
+.stars{
+
+font-size:22px;
+
+letter-spacing:4px;
+
+color:#d4af37;
+
+margin-bottom:22px;
+
+transition:.45s;
+
+}
+
+.testi-card:hover .stars{
+
+transform:scale(1.08);
+
+}
+
+.testi-card.active .stars{
+
+text-shadow:
+
+0 0 12px rgba(212,175,55,.55);
+
+}
+
+/* ===========================
+        REVIEW TEXT
+=========================== */
+
+.testi-text{
+
+font-size:17px;
+
+line-height:1.9;
+
+color:#555;
+
+margin-bottom:34px;
+
+transition:.45s;
+
+}
+
+.testi-card.active .testi-text{
+
+color:#ececec;
+
+}
+
+/* ===========================
+        USER AREA
+=========================== */
+
+.testi-user{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+margin-top:auto;
+
+}
+
+.testi-user img{
+
+width:64px;
+
+height:64px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid #d4af37;
+
+transition:.45s;
+
+box-shadow:
+
+0 10px 20px rgba(0,0,0,.12);
+
+}
+
+.testi-card.active .testi-user img{
+
+box-shadow:
+
+0 0 18px rgba(212,175,55,.45);
+
+}
+
+/* ===========================
+        NAME
+=========================== */
+
+.testi-user h4{
+
+font-size:19px;
+
+font-weight:700;
+
+margin:0 0 4px;
+
+color:#222;
+
+transition:.45s;
+
+}
+
+.testi-card.active .testi-user h4{
+
+color:#fff;
+
+}
+
+.testi-user span{
+
+font-size:14px;
+
+color:#777;
+
+transition:.45s;
+
+}
+
+.testi-card.active .testi-user span{
+
+color:#d8d8d8;
+
+}
+
+/* ===========================
+    FLOATING EFFECT
+=========================== */
+
+.testi-card{
+
+animation:testiFloat 5s ease-in-out infinite;
+
+}
+
+.testi-card:nth-child(2){
+
+animation-delay:.8s;
+
+}
+
+.testi-card:nth-child(3){
+
+animation-delay:1.6s;
+
+}
+
+@keyframes testiFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+}
+
+}
+
+/* Active card stays larger */
+
+.testi-card.active{
+
+animation:none;
+
+}
+
+/* =========================================================
+            DARZCI TESTIMONIALS V3
+                PART - 4 (FINAL)
+=========================================================*/
+
+/* ===========================
+        DESKTOP
+=========================== */
+
+@media (min-width:769px){
+
+.testi-wrapper{
+
+max-width:1150px;
+
+margin:auto;
+
+padding:30px 0;
+
+overflow:hidden;
+
+}
+
+.testi-track{
+
+display:flex;
+
+align-items:center;
+
+gap:30px;
+
+}
+
+.testi-card{
+
+flex:0 0 calc((100% - 60px)/3);
+
+max-width:340px;
+
+}
+
+.testi-card.active{
+
+transform:scale(1.12);
+
+}
+
+}
+
+/* ===========================
+        TABLET
+=========================== */
+
+@media (max-width:1024px){
+
+.testimonials{
+
+padding:90px 30px;
+
+}
+
+.testi-title{
+
+font-size:42px;
+
+margin-bottom:55px;
+
+}
+
+.testi-card{
+
+min-width:300px;
+
+max-width:300px;
+
+padding:30px;
+
+}
+
+.testi-card.active{
+
+transform:scale(1.08);
+
+}
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.testimonials{
+
+padding:70px 18px;
+
+border-radius:24px;
+
+}
+
+.testi-title{
+
+font-size:30px;
+
+margin-bottom:40px;
+
+}
+
+.testi-tag{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+}
+
+.testi-wrapper{
+
+overflow:hidden;
+
+}
+
+.testi-track{
+
+display:flex;
+
+gap:16px;
+
+}
+
+.testi-card{
+
+flex:0 0 100%;
+
+min-width:100%;
+
+max-width:100%;
+
+min-height:300px;
+
+padding:26px;
+
+transform:none;
+
+opacity:1;
+
+}
+
+.testi-card.active{
+
+transform:none;
+
+}
+
+.testi-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.stars{
+
+font-size:19px;
+
+letter-spacing:2px;
+
+}
+
+.testi-text{
+
+font-size:15px;
+
+line-height:1.8;
+
+}
+
+.testi-user img{
+
+width:55px;
+
+height:55px;
+
+}
+
+.testi-user h4{
+
+font-size:17px;
+
+}
+
+.testi-user span{
+
+font-size:13px;
+
+}
+
+}
+
+/* ===========================
+    EXTRA SMALL DEVICES
+=========================== */
+
+@media (max-width:480px){
+
+.testimonials{
+
+padding:55px 15px;
+
+}
+
+.testi-title{
+
+font-size:26px;
+
+}
+
+.testi-card{
+
+padding:22px;
+
+border-radius:22px;
+
+}
+
+.testi-text{
+
+font-size:14px;
+
+}
+
+.stars{
+
+font-size:17px;
+
+}
+
+.testi-user{
+
+gap:12px;
+
+}
+
+.testi-user img{
+
+width:48px;
+
+height:48px;
+
+}
+
+}
+
+
+/* ====================================
+     LANDSCAPE PHONE FRAME
+==================================== */
+
+.video-phone{
+
+    width:min(100%,900px);
+
+    margin:70px auto;
+
+    padding:14px;
+
+    background:#111;
+
+    border-radius:42px;
+
+    position:relative;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
+
+}
+
+/* Speaker */
+
+.video-phone::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:8px;
+
+    transform:translateX(-50%);
+
+    width:90px;
+
+    height:7px;
+
+    background:#333;
+
+    border-radius:50px;
+
+}
+
+/* Camera */
+
+.video-phone::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:8px;
+
+    right:120px;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#444;
+
+}
+
+/* VIDEO */
+
+.video-phone video{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:28px;
+
+}
+
+/* Vertical Dynamic Island */
+
+.video-phone::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:10px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:24px;
+
+    height:120px;
+
+    background:#000;
+
+    border-radius:50px;
+
+    z-index:20;
+
+}
+
+/* Camera */
+
+.video-phone::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:17px;
+
+    top:calc(50% - 38px);
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#222;
+
+    border:2px solid #444;
+
+    z-index:21;
+
+}
+
+
+@media(max-width:768px){
+
+.video-phone{
+
+    width:95%;
+
+    padding:10px;
+
+    border-radius:26px;
+
+}
+
+.video-phone::before{
+
+    width:70px;
+
+    height:5px;
+
+}
+
+.video-phone::after{
+
+    right:90px;
+
+    width:8px;
+
+    height:8px;
+
+}
+
+.video-phone video{
+
+    aspect-ratio:16/9;
+
+    border-radius:18px;
+
+}
+
+.video-phone::before{
+
+    width:18px;
+    height:85px;
+
+}
+
+.video-phone::after{
+
+    left:15px;
+
+    top:calc(50% - 28px);
+
+    width:6px;
+    height:6px;
+
+}
+
+
+}
+
+
+
+/* FOOTER */
+.site-footer{
+
+  margin-top:120px;
+  
+  background:var(--black);
+  color:white;
+  padding:70px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo-circle{
+  height: 180px;
+  width:250px;
+}
+
+.footer-column h4{
+  margin-bottom:18px;
+}
+
+.footer-link{
+  color:#ccc;
+  margin-bottom:8px;
+  display:block;
+}
+
+.footer-link:hover{
+  color:var(--gold);
+}
+
+.instagram-icon{
+  width:26px;
+  fill:#ccc;
+}
+.instagram-icon:hover{
+  fill:#E1306C;
+  stroke:#E1306C;
+}
+.Facebook-icon{
+  width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+.Facebook-icon:hover{
+  fill:darkblue;
+}
+.linkedin-icon{
+    width:26px;
+  margin-left: 20px;
+  fill:#ccc;
+}
+
+.linkedin-icon:hover{
+    fill: #0a66c2;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:45px;
+  padding-top:20px;
+  text-align:center;
+  color:#bbb;
+}
+
+/* =========================================
+            FOOTER MOBILE FIX
+========================================= */
+
+@media (max-width:768px){
+
+.site-footer{
+    margin-top:60px;
+    padding:50px 0 20px;
+}
+
+.footer-grid{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:35px;
+
+    text-align:center;
+}
+
+.footer-column{
+    width:100%;
+}
+
+.footer-logo-circle{
+
+    width:180px;
+    height:auto;
+
+    margin:0 auto 15px;
+}
+
+.footer-column h4{
+
+    margin-bottom:12px;
+
+    font-size:18px;
+}
+
+.footer-link{
+
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.social-icons{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:15px;
+}
+
+.instagram-icon,
+.Facebook-icon,
+.linkedin-icon{
+
+    width:28px;
+    margin:0;
+}
+
+.footer-bottom{
+
+    margin-top:30px;
+    padding-top:15px;
+
+    font-size:13px;
+    line-height:1.6;
+}
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+
+  .main-nav{
+    display:none;
+  }
+
+  .mobile-toggle{
+    display:block;
+  }
+
+  .product-track{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero-title{
+    font-size:48px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-title{
+    font-size:38px;
+  }
+
+  .hero-cta{
+    flex-direction:column;
+  }
+
+}
+
+/* mobile responsive */
+
+/* ==================================
+   TABLET
+================================== */
+
+@media (max-width:1024px){
+
+.container{
+    width:95%;
+}
+
+section{
+    padding:60px 0;
+}
+
+.brand-logo{
+    width:220px;
+    height:auto;
+}
+
+.hero-title{
+    font-size:56px;
+}
+
+.travel-heading{
+    font-size:3.5rem;
+}
+
+.travel-content h3{
+    font-size:4rem;
+}
+
+.product-track{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.testi-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+.footer-grid{
+    grid-template-columns:1fr 1fr;
+}
+}
+
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media (max-width:768px){
+
+.container{
+    width:92%;
+}
+
+/* HEADER */
+
+.main-nav{
+    display:none;
+}
+
+.mobile-toggle{
+    display:block;
+}
+
+.brand-logo{
+    width:170px;
+}
+
+.search-wrapper.active{
+    width:220px;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    margin-top:0;
+}
+
+.hero-content{
+    padding:0 20px;
+    max-width:100%;
+}
+
+.hero-title{
+    font-size:42px;
+}
+
+.hero-sub{
+    font-size:15px;
+}
+
+.hero-cta{
+    flex-direction:column;
+    gap:12px;
+}
+
+/* SALE BANNER */
+
+.summer-banner{
+    height:75vh;
+}
+
+.summer-overlay h2{
+    font-size:2.5rem;
+}
+
+.summer-overlay p{
+    font-size:1rem;
+}
+
+/* TRAVEL */
+
+.travel-showcase{
+    padding:70px 20px;
+}
+
+.travel-heading{
+    font-size:2.4rem;
+    text-align:center;
+}
+
+.travel-container{
+    height:auto;
+    padding:40px 20px;
+    flex-direction:column;
+}
+
+.travel-content{
+    position:relative;
+    right:auto;
+    text-align:center;
+}
+
+.travel-content h3{
+    font-size:2.5rem;
+}
+
+.travel-content p{
+    font-size:15px;
+}
+
+.travel-cards{
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.travel-card{
+    width:140px;
+    height:95px;
+}
+
+/* PRODUCTS */
+
+/* ==========================
+   FEATURED MOBILE FIX
+========================== */
+
+  .featured{
+  background:#f7f3ec;
+  padding-bottom: 0%;
+}
+
+  .section-header{
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
+  }
+
+  .section-header h2{
+    font-size:30px;
+  }
+
+  .section-header h1{
+    display: block;
+    font-size:30px;
+    padding-top: 50px;
+  }
+
+  .product-track{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-card{
+    border-radius:14px;
+  }
+
+  .product-card img,
+  .product-card video{
+    height:180px;
+    border-radius:14px;
+  }
+
+  .product-card h3{
+    font-size:15px;
+    padding:12px 10px 6px;
+
+    /* 2 line ke baad text cut */
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+
+    min-height:48px;
+  }
+
+  .price{
+    font-size:15px;
+    padding:0 10px 10px;
+  }
+
+  .product-card .btn{
+    margin:0 10px 12px;
+    width:calc(100% - 20px);
+    text-align:center;
+    font-size:13px;
+    padding:10px;
+  }
+
+/* CRAFTSMANSHIP */
+
+.craftsmanship{
+    grid-template-columns:1fr;
+    padding:50px 20px;
+}
+
+.craft-left img,
+.craft-left video{
+    height:320px;
+}
+
+.craft-right h2{
+    font-size:2rem;
+}
+
+/* WHY */
+
+.center{
+    font-size:2rem;
+}
+
+.why-grid{
+    grid-template-columns:1fr;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    padding:70px 20px;
+}
+
+.testi-title{
+    font-size:2rem;
+}
+
+.testi-grid{
+    grid-template-columns:1fr;
+}
+
+/* FOOTER */
+
+.footer-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.footer-logo-circle{
+    margin:auto;
+}
+
+}
+
+
+/* ==================================
+   SMALL MOBILE
+================================== */
+
+@media (max-width:480px){
+
+.hero-title{
+    font-size:32px;
+}
+
+.travel-content h3{
+    font-size:2rem;
+}
+
+.travel-heading{
+    font-size:2rem;
+}
+
+.section-header h2{
+    font-size:2rem;
+}
+
+.summer-overlay h2{
+    font-size:2rem;
+}
+
+.brand-logo{
+    width:140px;
+}
+
+.search-wrapper.active{
+    width:180px;
+}
+
+}
