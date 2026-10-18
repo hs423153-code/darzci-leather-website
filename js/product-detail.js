@@ -1,8 +1,8 @@
 const products = {
   
   201: {
-    name: "handcrafted Goat Skin Backpack",
-    category:"backpack",
+    name: "handcrafted Goat Skin Bagpack",
+    category:"bagpack",
     price: "₹5,499",
     images: [
       "image/Goat-01.jpg",
@@ -20,15 +20,15 @@ const products = {
 
     bgVideo: "video/VID-20260515-WA0005.mp4",
     
-    story:"Elevate your everyday style with our handcrafted Goat Leather Backpack ✨, Bold texture, premium finish, and detailed hand-tooling that stands out wherever you go. Perfect for travel, work, or daily carry — built to last, made to impress.",
+    story:"Elevate your everyday style with our handcrafted Goat Leather Bagpack ✨, Bold texture, premium finish, and detailed hand-tooling that stands out wherever you go. Perfect for travel, work, or daily carry — built to last, made to impress.",
 
     whatsappText:
-   "Hello Darzci, I want to order handcrafted Goat Skin Backpack (Product ID: 201)"
+   "Hello Darzci, I want to order handcrafted Goat Skin Bagpack (Product ID: 201)"
   },
 
   202: {
-    name: "Darzci Premium Leather Backpack",
-    category:"backpack",
+    name: "Darzci Premium Leather Bagpack",
+    category:"bagpack",
     price: "₹5,199",
     images: [
       "image/Brown-bag.01.jpg",
@@ -45,14 +45,14 @@ const products = {
  ],
  
    bgVideo: "video/ab_cdef_abcdefmp_.mp4",
-    story:"Presenting the DARZCI Premium Leather Backpack, a masterclass in combining rugged durability with sophisticated urban style. This bag is designed for the modern professional or traveler who values high-quality craftsmanship and timeless aesthetics. The DARZCI Premium Leather Backpack, The DARZCI backpack is more than just a storage accessory; it is a statement piece crafted from top-tier genuine leather that ages beautifully, developing a unique patina over time.",
+    story:"Presenting the DARZCI Premium Leather Bagpack, a masterclass in combining rugged durability with sophisticated urban style. This bag is designed for the modern professional or traveler who values high-quality craftsmanship and timeless aesthetics. The DARZCI Premium Leather Bagpack, The DARZCI bagpack is more than just a storage accessory; it is a statement piece crafted from top-tier genuine leather that ages beautifully, developing a unique patina over time.",
     whatsappText:
-   "Hello Darzci, I want to order Darzci Premium Leather Backpack (Product ID: 202)",
+   "Hello Darzci, I want to order Darzci Premium Leather Bagpack (Product ID: 202)",
   },
 
   203: {
     name: "Pure leathered material academic bagpack",
-    category:"backpack",
+    category:"bagpack",
     price: "₹3,199",
     image: "image/travell.jpg",
     images: [
@@ -63,14 +63,14 @@ const products = {
    ],
    bgVideo: "video/travell(2)-vid.mp4",
     description: "",
-     story:"Experience true craftsmanship with this premium Darzci leather backpack — crafted for people who want style, strength, and long-lasting durability in one perfect design. Whether it’s for travel, office, or daily use, this genuine leather bag instantly elevates your look while giving you the space and reliability you need every day.",
+     story:"Experience true craftsmanship with this premium Darzci leather bagpack — crafted for people who want style, strength, and long-lasting durability in one perfect design. Whether it’s for travel, office, or daily use, this genuine leather bag instantly elevates your look while giving you the space and reliability you need every day.",
     whatsappText:
    "Hello Darzci, I want to order Pure leathered material academic bagpack (Product ID: 203)"
   },
 
   204: {
     name: "premium Leathered Unisex Bagpack (Black)",
-    category:"backpack",
+    category:"bagpack",
     price: "₹1,799",
     story: "Experience the difference of ultra-quality leather. This premium blueberry-hued bag seamlessly blends rugged roll-top utility with refined, world-class craftsmanship. Elevate your everyday carry",
     images: [
@@ -86,14 +86,14 @@ const products = {
 
   205: {
     name: "premium Leathered Unisex Bagpack (Yellow)",
-    category:"backpack",
+    category:"bagpack",
     price: "₹1,799",
     images: [
       "image/Yellow-bag-01.jpg",
       "image/Yellow-bag-02.jpg",
       "image/Yellow-bag-03.jpg",
    ],
-    story: "Experience true craftsmanship with this premium Darzci leather backpack — crafted for people who want style, strength, and long-lasting durability in one perfect design. Whether it’s for travel, office, or daily use, this genuine leather bag instantly elevates your look while giving you the space and reliability you need every day.",
+    story: "Experience true craftsmanship with this premium Darzci leather bagpack — crafted for people who want style, strength, and long-lasting durability in one perfect design. Whether it’s for travel, office, or daily use, this genuine leather bag instantly elevates your look while giving you the space and reliability you need every day.",
     bgVideo: "video/Yellow-bag-vid.mp4",
      whatsappText:
    "Hello Darzci, I want to order premium Leathered Unisex Bagpack (Yellow) (Product ID: 205)"
@@ -101,7 +101,7 @@ const products = {
 
   206: {
     name: "Pure leathered crafted bagpack",
-    category:"backpack",
+    category:"bagpack",
     price: "₹1,599",
     images: [
       "image/Hammer-01.jpg",
@@ -116,7 +116,7 @@ const products = {
 
   207: {
     name: "Emerald Green Leathered Bagpack",
-    category:"backpack",
+    category:"bagpack",
     price: "₹3,199",
     images: [
       "image/greenry-01.jpg",
@@ -131,7 +131,7 @@ const products = {
 
   208: {
     name: "Urban Leather black-bag",
-    category:"backpack",
+    category:"bagpack",
     price: "₹2,199",
     images: [
       "image/small-black-01.jpg",
@@ -147,14 +147,14 @@ const products = {
    "Ergonomic Carry"
  ],
    bgVideo: "video/small-black-vid.mp4",
-    story: "Premium Genuine Leather Backpack – Sleek, Modern, and Built for Everyday Excellence , Step up your style with this expertly crafted backpack made from 100% genuine leather. Designed for those who appreciate clean lines and lasting quality, this piece combines luxury with everyday practicality.",
+    story: "Premium Genuine Leather Bagpack – Sleek, Modern, and Built for Everyday Excellence , Step up your style with this expertly crafted bagpack made from 100% genuine leather. Designed for those who appreciate clean lines and lasting quality, this piece combines luxury with everyday practicality.",
   whatsappText:
    "Hello Darzci, I want to order Urban Leather black-bag  (Product ID: 208)",
   },
 
   209: {
     name: "Premium Crocodile Textured Leather Bagpack",
-    category:"backpack",
+    category:"bagpack",
     price: "₹2,899",
     images: [
       "image/Blueberry-01.jpg",
@@ -177,8 +177,8 @@ const products = {
   },
 
   210: {
-    name: "Full Leathered Backpack",
-    category:"backpack",
+    name: "Full Leathered Bagpack",
+    category:"bagpack",
     price: "₹5,299",
     images: [
       "image/brownie-01.jpg",
@@ -194,14 +194,14 @@ const products = {
  ],
    bgVideo: "video/brownie-vid.mp4",
 
-    story:"Designed for the modern professional who refuses to compromise on character. Crafted from premium, richly textured leather that develops a unique patina over time, this backpack balances a rugged heritage look with sleek, utilitarian precision. From the office to the weekend, it carries your world with effortless sophistication. It features a dual-type handle that you can configure according to your preference. Discover the art of premium leathercraft.",
+    story:"Designed for the modern professional who refuses to compromise on character. Crafted from premium, richly textured leather that develops a unique patina over time, this bagpack balances a rugged heritage look with sleek, utilitarian precision. From the office to the weekend, it carries your world with effortless sophistication. It features a dual-type handle that you can configure according to your preference. Discover the art of premium leathercraft.",
     whatsappText:
-   "Hello Darzci, I want to order Full Leathered Backpack (Product ID: 210)",
+   "Hello Darzci, I want to order Full Leathered Bagpack (Product ID: 210)",
   },
 
 211: {
     name: "",
-    category:"backpack",
+    category:"bagpack",
     price: "₹1,499",
     images: [
       "image/dark-pink-01.jpg",
@@ -240,7 +240,7 @@ const products = {
    "Premium Brass Hardware"
  ],
    bgVideo: "video/Epitome-video.mp4",
-     story:"Crafted from genuine goat skin leather, this backpack combines durability with timeless elegance. Every stitch is completed by skilled artisans, creating a piece that ages beautifully with every journey.",
+     story:"Crafted from genuine goat skin leather, this bagpack combines durability with timeless elegance. Every stitch is completed by skilled artisans, creating a piece that ages beautifully with every journey.",
      whatsappText:
    "Hello Darzci, I want to order Crocodile Textured Leather Duffel Bag (Product ID: 301)",
    },
@@ -1195,7 +1195,7 @@ const products = {
   },
 
 //   430: {
-//     name: "Darzci Premium Leather Backpack",
+//     name: "Darzci Premium Leather Bagpack",
 //     category:"handbags",
 //     price: "₹5,199",
 //     images: [
@@ -1214,11 +1214,11 @@ const products = {
 //    bgVideo: "",
 //     story: "",
 //     whatsappText:
-//    "Hello Darzci, I want to order Darzci Premium Leather Backpack (Product ID: 430)"
+//    "Hello Darzci, I want to order Darzci Premium Leather Bagpack (Product ID: 430)"
 //   },
 
   431: {
-    name: "Darzci Premium Leather Backpack",
+    name: "Darzci Premium Leather handbag",
     category:"handbags",
     price: "₹5,199",
     images: [
@@ -1237,7 +1237,7 @@ const products = {
    bgVideo: "video/textured-vid.mp4",
     story: "The Darzci Black and Gold Splatter Hand is meticulously crafted, featuring a striking gold splatter motif that evokes a sense of artistic flair. The structured silhouette and premium hardware ensure it is as practical as it is beautiful. Carry your essentials in style, whether you're heading to the office or a chic weekend event.",
     whatsappText:
-   "Hello Darzci, I want to order Darzci Premium Leather Backpack (Product ID: 431)"
+   "Hello Darzci, I want to order Darzci Premium Leather Bagpack (Product ID: 431)"
   },
 
   432: {
@@ -2097,5 +2097,49 @@ function renderReviews(){
 renderReviews();
 
 }
+
+(function(){
+
+  const toggle   = document.getElementById("mobileToggle");
+  const nav      = document.getElementById("mainNav");
+  const backdrop = document.getElementById("menuBackdrop");
+
+  if(!toggle || !nav) return;
+
+  function setMenu(open){
+
+    nav.classList.toggle("active", open);
+    toggle.classList.toggle("active", open);
+
+    if(backdrop) backdrop.classList.toggle("active", open);
+
+    document.body.classList.toggle("menu-open", open);
+
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+
+  }
+
+  toggle.addEventListener("click", function(){
+    setMenu(!nav.classList.contains("active"));
+  });
+
+  // tapping a link closes the menu
+  nav.addEventListener("click", function(e){
+    if(e.target.closest("a")) setMenu(false);
+  });
+
+  if(backdrop){
+    backdrop.addEventListener("click", function(){ setMenu(false); });
+  }
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") setMenu(false);
+  });
+
+  window.addEventListener("resize", function(){
+    if(window.innerWidth > 768) setMenu(false);
+  });
+
+})();
 
 

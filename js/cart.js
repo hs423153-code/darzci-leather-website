@@ -1,5 +1,5 @@
 /* ==========================================
-        DARZCI CART.JS
+        DARZCI CART.JS  (Amazon-style cart)
 ========================================== */
 
 // =============================
@@ -14,9 +14,10 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 // =============================
 
 const cartProducts = document.getElementById("cartProducts");
-const subtotal = document.getElementById("subtotal");
-const total = document.getElementById("total");
-const whatsappBtn = document.getElementById("whatsappOrder");
+const summaryLine  = document.getElementById("summaryLine");
+const bottomLine   = document.getElementById("bottomLine");
+const total        = document.getElementById("total");
+const whatsappBtn  = document.getElementById("whatsappOrder");
 
 
 // =============================
@@ -42,6 +43,25 @@ function getPrice(price){
 
 
 // =============================
+// SUBTOTAL LINES  (top-right box + bottom of list)
+// =============================
+
+function setSubtotalLines(itemCount, amount){
+
+    const label = itemCount === 1 ? "item" : "items";
+
+    const html =
+    `Subtotal (${itemCount} ${label}): <strong>₹${amount.toLocaleString()}</strong>`;
+
+    if(summaryLine) summaryLine.innerHTML = html;
+    if(bottomLine)  bottomLine.innerHTML  = html;
+
+    if(total) total.innerText = `₹${amount.toLocaleString()}`;
+
+}
+
+
+// =============================
 // RENDER CART
 // =============================
 
@@ -52,6 +72,7 @@ function renderCart(){
     cartProducts.innerHTML = "";
 
     let grandTotal = 0;
+    let itemCount  = 0;
 
     let whatsappMessage =
 `Hello Darzci,
@@ -61,30 +82,31 @@ I want to order:
 `;
 
 
-
     if(cart.length===0){
 
         cartProducts.innerHTML = `
 
         <div class="empty-cart">
 
-            <h2>Your Cart is Empty</h2>
+            <h2>Your Darzci Cart is empty</h2>
 
             <p>Add some handcrafted products.</p>
+
+            <a href="product.html" class="empty-cart-btn">
+                Continue Shopping
+            </a>
 
         </div>
 
         `;
 
-        subtotal.innerText="₹0";
-        total.innerText="₹0";
+        setSubtotalLines(0,0);
 
         whatsappBtn.href="#";
 
         return;
 
     }
-
 
 
     cart.forEach((product,index)=>{
@@ -96,7 +118,7 @@ I want to order:
         itemPrice * product.quantity;
 
         grandTotal += itemTotal;
-
+        itemCount  += product.quantity;
 
 
         whatsappMessage +=
@@ -107,85 +129,95 @@ Price : ${product.price}
 `;
 
 
-
         cartProducts.innerHTML += `
 
 <div class="cart-item">
 
-<div class="cart-image">
+    <div class="cart-image">
 
-<a href="product-detail.html?id=${product.id}">
+        <a href="product-detail.html?id=${product.id}">
 
-<img
-src="${product.image}"
-alt="${product.name}">
+            <img
+            src="${product.image}"
+            alt="${product.name}">
 
-</a>
+        </a>
 
-</div>
+    </div>
 
 
+    <div class="cart-details">
 
-<div class="cart-details">
+        <h2>
 
-<h2>
+            <a
+            class="cart-product-link"
+            href="product-detail.html?id=${product.id}">
 
-<a
-class="cart-product-link"
-href="product-detail.html?id=${product.id}">
+                ${product.name}
 
-${product.name}
+            </a>
 
-</a>
+        </h2>
 
-</h2>
+        <div class="cart-price-inline">
+            ₹${itemTotal.toLocaleString()}
+        </div>
 
-<p>
+        <p class="cart-stock">In stock</p>
 
-Price :
-${product.price}
+        <p class="cart-delivery">
+            Eligible for <strong>FREE Delivery</strong>
+        </p>
 
-</p>
+        <p class="cart-unit">
+            Unit price : ${product.price}
+        </p>
 
-<div class="qty-box">
+        <div class="cart-actions">
 
-<button
-onclick="decreaseQty(${index})">
+            <div class="qty-box">
 
--
+                <button
+                onclick="decreaseQty(${index})"
+                aria-label="Decrease quantity">
 
-</button>
+                    −
 
-<span>
+                </button>
 
-${product.quantity}
+                <span>${product.quantity}</span>
 
-</span>
+                <button
+                onclick="increaseQty(${index})"
+                aria-label="Increase quantity">
 
-<button
-onclick="increaseQty(${index})">
+                    +
 
-+
+                </button>
 
-</button>
+            </div>
 
-</div>
+            <span class="action-sep"></span>
 
-<button
-class="remove-btn"
-onclick="removeCartItem(${index})">
+            <button
+            class="remove-btn"
+            onclick="removeCartItem(${index})">
 
-Remove
+                Delete
 
-</button>
+            </button>
 
-</div>
+        </div>
 
-<div class="cart-price">
+    </div>
 
-₹${itemTotal.toLocaleString()}
 
-</div>
+    <div class="cart-price">
+
+        ₹${itemTotal.toLocaleString()}
+
+    </div>
 
 </div>
 
@@ -194,12 +226,7 @@ Remove
     });
 
 
-
-    subtotal.innerText =
-    `₹${grandTotal.toLocaleString()}`;
-
-    total.innerText =
-    `₹${grandTotal.toLocaleString()}`;
+    setSubtotalLines(itemCount, grandTotal);
 
     whatsappMessage +=
 
@@ -209,7 +236,6 @@ Remove
 `https://wa.me/8528631775?text=${encodeURIComponent(whatsappMessage)}`;
 
 }
-
 
 
 // =============================
@@ -229,7 +255,6 @@ function increaseQty(index){
     renderBestSeller();
 
 }
-
 
 
 // =============================
@@ -261,7 +286,6 @@ function decreaseQty(index){
 }
 
 
-
 // =============================
 // REMOVE
 // =============================
@@ -279,9 +303,7 @@ function removeCartItem(index){
     renderBestSeller();
 
 }
-renderCart();
 
-renderRecommendations();
 
 function generateStars(rating){
 
@@ -303,9 +325,8 @@ function generateStars(rating){
 
 
 /* ==========================================
-        YOU MAY ALSO LIKE
+        PRODUCT CARD (You May Also Like / Best Sellers)
 ========================================== */
-
 
 function createRecommendationCard(product){
 
@@ -314,10 +335,10 @@ return `
 <div class="product-card">
 
 ${product.bestseller
-? '<span class="bestseller-badge">BESTSELLER</span>'
+? '<span class="bestseller-badge">Best Seller</span>'
 : ""}
 
-<a href="${product.link}">
+<a href="${product.link}" class="card-image-link">
 
 <img
 src="${product.image}"
@@ -327,7 +348,11 @@ alt="${product.name}">
 
 <h3>
 
+<a href="${product.link}">
+
 ${product.name || "Premium Leather Product"}
+
+</a>
 
 </h3>
 
@@ -419,8 +444,6 @@ function renderBestSeller(){
 
     bestSellerGrid.innerHTML = "";
 
-    // Bestseller Products
-
     const bestProducts =
     products.filter(product => product.bestseller);
 
@@ -434,7 +457,6 @@ function renderBestSeller(){
 }
 
 
-
 /* ==========================================
         INITIALIZE
 ========================================== */
@@ -443,4 +465,4 @@ renderCart();
 
 renderRecommendations();
 
-renderBestSeller();l
+renderBestSeller();

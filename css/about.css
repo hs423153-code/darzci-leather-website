@@ -1882,3 +1882,98 @@ body.menu-open{
         border-top:1px solid rgba(0,0,0,.08);
     }
 }
+
+
+/* ==========================================================
+   MOBILE MENU: ONE CLOSE (X) BUTTON ONLY
+   - hides the extra X inside the drawer
+   - the hamburger turns into the X whenever the menu is open,
+     on every page, whatever JS that page uses
+   Keep this block at the very end of the file.
+========================================================== */
+
+@media (max-width:768px){
+
+    /* remove the second X inside the drawer */
+    .main-nav .drawer-close{
+        display:none !important;
+    }
+
+    /* hamburger -> X while the drawer is open */
+    body:has(.main-nav.active) .mobile-toggle{
+        position:relative;
+        z-index:10001;
+        border-color:#c7a56a;
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 0 2px,
+            #fff;
+    }
+
+    body:has(.main-nav.active) .mobile-toggle::before{
+        top:21px;
+        transform:translateX(-50%) rotate(45deg);
+    }
+
+    body:has(.main-nav.active) .mobile-toggle::after{
+        top:21px;
+        transform:translateX(-50%) rotate(-45deg);
+    }
+}
+
+
+/* ==========================================================
+   FIX: PAGE WIDER THAN THE PHONE (blank space on the right
+   when zooming out). The hidden side drawer / search panel
+   sit outside the screen and made the page scroll sideways.
+   Keep this block at the very end of the file.
+========================================================== */
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    max-width:100%;
+    overflow-x:clip;
+}
+
+.site-header{
+    overflow-x:clip;
+}
+
+
+/* ==========================================================
+   MOBILE MENU DRAWER: STAYS PINNED TO THE SCREEN WHILE SCROLLING
+   - the header has a glass blur, which made the drawer follow the
+     header box instead of the screen. While the menu is open the
+     blur is switched off, so the drawer is fixed to the screen.
+   - page behind the menu cannot scroll away while it is open.
+   Keep this block at the very end of the file.
+========================================================== */
+
+@media (max-width:768px){
+
+    body.menu-open .site-header{
+        -webkit-backdrop-filter:none;
+        backdrop-filter:none;
+    }
+
+    .main-nav{
+        position:fixed;
+        top:0;
+        left:auto;
+        right:0;
+        height:100vh;
+        height:100dvh;
+        overscroll-behavior:contain;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    html:has(body.menu-open){
+        overflow:hidden;
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+}

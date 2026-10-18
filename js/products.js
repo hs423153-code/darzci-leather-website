@@ -3,8 +3,8 @@
 
 {
 id:201,
-name:"handcrafted Goat Skin Backpack",
-category:"backpack",
+name:"handcrafted Goat Skin Bagpack",
+category:"bagpack",
 price:"₹5,499",
 image:"image/Goat-01.jpg",
 
@@ -18,8 +18,8 @@ link:"product-detail.html?id=201"
 
 {
 id:202,
-name:"Darzci Premium Leather Backpack",
-category:"backpack",
+name:"Darzci Premium Leather Bagpack",
+category:"bagpack",
 price:"₹5,199",
 image:"image/Brown-bag.01.jpg",
 
@@ -33,7 +33,7 @@ link:"product-detail.html?id=202"
 {
 id:203,
 name:"Pure leathered material academic bagpack",
-category:"backpack",
+category:"bagpack",
 price:"₹3,199",
 image:"image/travell.jpg",
 
@@ -47,7 +47,7 @@ link:"product-detail.html?id=203"
 {
 id:204,
 name:"premium Leathered Unisex Bagpack (Black)",
-category:"backpack",
+category:"bagpack",
 price:"₹1,799",
 image:"image/Blackberry-01.jpg",
 
@@ -61,7 +61,7 @@ link:"product-detail.html?id=204"
 {
 id:205,
 name:"premium Leathered Unisex Bagpack (Yellow)",
-category:"backpack",
+category:"bagpack",
 price:"₹1,799",
 image:"image/Yellow-bag-01.jpg",
 
@@ -75,7 +75,7 @@ link:"product-detail.html?id=205"
 {
 id:206,
 name:"Pure leathered crafted bagpack",
-category:"backpack",
+category:"bagpack",
 price:"₹1,599",
 image:"image/Hammer-01.jpg",
 
@@ -89,7 +89,7 @@ link:"product-detail.html?id=206"
 {
 id:207,
 name:"Emerald Green Leathered Bagpack",
-category:"backpack",
+category:"bagpack",
 price:"₹3,199",
 image:"image/greenry-01.jpg",
 
@@ -103,7 +103,7 @@ link:"product-detail.html?id=207"
 {
 id:208,
 name:"Urban Leather black-bag",
-category:"backpack",
+category:"bagpack",
 price:"₹2,199",
 image:"image/small-black-01.jpg",
 
@@ -117,7 +117,7 @@ link:"product-detail.html?id=208"
 {
 id:209,
 name:"Premium Crocodile Textured Leather Bagpack",
-category:"backpack",
+category:"bagpack",
 price:"₹2,899",
 image:"image/Blueberry-01.jpg",
 
@@ -130,8 +130,8 @@ link:"product-detail.html?id=209"
 },
 {
 id:210,
-name:"Full Leathered Backpack",
-category:"backpack",
+name:"Full Leathered bagpack",
+category:"bagpack",
 price:"₹5,299",
 image:"image/brownie-main.jpg",
 
@@ -244,7 +244,7 @@ link:"product-detail.html?id=307"
 },
 // {
 // id:418,
-// name:"Darzci Premium Leather Backpack",
+// name:"Darzci Premium Leather bagpack",
 // category:"duffel",
 // price:"₹5,199",
 // image:"image/black-bag.jpg",
@@ -758,7 +758,7 @@ link:"product-detail.html?id=429"
 },
 // {
 // id:430,
-// name:"Darzci Premium Leather Backpack",
+// name:"Darzci Premium Leather bagpack",
 // category:"handbags",
 // price:"₹5,199",
 // image:"image/stylish-black-01.jpg",
@@ -772,7 +772,7 @@ link:"product-detail.html?id=429"
 // },
 {
 id:431,
-name:"Darzci Premium Leather Backpack",
+name:"Darzci Premium Leather handbag",
 category:"handbags",
 price:"₹5,199",
 image:"image/textured-01.jpg",

@@ -390,7 +390,10 @@ window.addEventListener("resize", () => {
 });
 
 /* ==========================================
-      DARZCI TESTIMONIAL SLIDER V1
+      DARZCI TESTIMONIAL SLIDER V2
+      - desktop: centered card, auto slide
+      - mobile : one card at a time, auto slide + swipe
+        (moves with transform, same way on every phone)
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -403,84 +406,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let current = 0;
 
-    // ---- mobile slide animation (own animation: works in every browser,
-    //      no dependence on smooth-scroll + scroll-snap behaviour) ----
-    let animId = null;
-    let isAnimating = false;
+    const AUTO_MS = 8000;
 
-    function stopSlideAnimation(){
-
-        cancelAnimationFrame(animId);
-
-        if(isAnimating){
-            isAnimating = false;
-            wrapper.style.scrollSnapType = "";   // give snapping back
-        }
-
+    function isMobile(){
+        return window.innerWidth <= 768;
     }
 
-    function slideTo(left){
+    function setActive(){
 
-        stopSlideAnimation();
+        cards.forEach(card=>card.classList.remove("active"));
 
-        const from = wrapper.scrollLeft;
-        const dist = left - from;
-
-        if(Math.abs(dist) < 2){
-            wrapper.scrollLeft = left;
-            return;
-        }
-
-        const duration = 650;
-        const start = performance.now();
-
-        isAnimating = true;
-
-        // snapping off while we animate, otherwise it fights every step
-        wrapper.style.scrollSnapType = "none";
-
-        function step(now){
-
-            const p = Math.min((now - start) / duration, 1);
-
-            const eased = 1 - Math.pow(1 - p, 3);
-
-            wrapper.scrollLeft = from + dist * eased;
-
-            if(p < 1){
-                animId = requestAnimationFrame(step);
-            }else{
-                isAnimating = false;
-                wrapper.style.scrollSnapType = "";
-            }
-
-        }
-
-        animId = requestAnimationFrame(step);
+        cards[current].classList.add("active");
 
     }
 
     function updateSlider(){
 
-        if(window.innerWidth <= 768){
+        setActive();
 
-            // MOBILE (native scroll-snap carousel: swipe + auto slide)
-            track.style.transform = "none";
+        const cardWidth = cards[0].offsetWidth;
 
-            slideTo(cards[current].offsetLeft);
+        if(isMobile()){
 
-            cards.forEach(card=>card.classList.remove("active"));
+            // MOBILE: one full-width card per step
+            const gap =
+            parseFloat(getComputedStyle(track).columnGap) || 16;
 
-            cards[current].classList.add("active");
+            track.style.transform =
+            `translateX(-${current * (cardWidth + gap)}px)`;
 
         }else{
 
-            // DESKTOP
-            cards.forEach(card=>card.classList.remove("active"));
-
-            cards[current].classList.add("active");
-
-            const cardWidth = cards[0].offsetWidth;
+            // DESKTOP: active card in the center
             const gap = 30;
 
             const wrapperWidth = wrapper.offsetWidth;
@@ -498,75 +455,99 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    updateSlider();
+    function goTo(index){
 
-    let autoSlide = setInterval(nextSlide,8000);
+        if(index >= cards.length) index = 0;
 
-    function nextSlide(){
+        if(index < 0) index = cards.length - 1;
 
-        current++;
-
-        if(current >= cards.length){
-            current = 0;
-        }
+        current = index;
 
         updateSlider();
 
     }
 
+    function nextSlide(){
+        goTo(current + 1);
+    }
+
+    function prevSlide(){
+        goTo(current - 1);
+    }
+
+    // ---- auto slide ----
+    let autoSlide = setInterval(nextSlide, AUTO_MS);
+
+    function restartAuto(){
+
+        clearInterval(autoSlide);
+
+        autoSlide = setInterval(nextSlide, AUTO_MS);
+
+    }
+
+    updateSlider();
+
+    // layout may still be settling (fonts / images) -> place again once loaded
+    window.addEventListener("load", updateSlider);
+
     let lastWidth = window.innerWidth;
 
-    window.addEventListener("resize",()=>{
+    window.addEventListener("resize", () => {
 
         if(window.innerWidth === lastWidth) return;
 
         lastWidth = window.innerWidth;
 
-        stopSlideAnimation();
-
-        wrapper.scrollLeft = 0;
-
         updateSlider();
 
     });
 
-    // user touches the slider -> stop our animation, he is in control
-    wrapper.addEventListener("touchstart",stopSlideAnimation,{passive:true});
+    // ---- swipe (mobile) ----
+    let startX = 0;
+    let startY = 0;
+    let touching = false;
 
-    // keep "current" in sync when the user swipes by hand (mobile)
-    let swipeTimer;
+    wrapper.addEventListener("touchstart", (e) => {
 
-    wrapper.addEventListener("scroll",()=>{
+        if(!isMobile()) return;
 
-        if(window.innerWidth > 768 || isAnimating) return;
+        const t = e.touches[0];
 
-        clearTimeout(swipeTimer);
+        startX = t.clientX;
+        startY = t.clientY;
 
-        swipeTimer = setTimeout(()=>{
+        touching = true;
 
-            const step = cards[1]
-                ? cards[1].offsetLeft - cards[0].offsetLeft
-                : cards[0].offsetWidth;
+    }, {passive:true});
 
-            const index = Math.round(wrapper.scrollLeft / step);
+    wrapper.addEventListener("touchend", (e) => {
 
-            if(cards[index] && index !== current){
+        if(!touching) return;
 
-                current = index;
+        touching = false;
 
-                cards.forEach(card=>card.classList.remove("active"));
+        const t = e.changedTouches[0];
 
-                cards[current].classList.add("active");
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
 
-                // restart auto-slide timer after a manual swipe
-                clearInterval(autoSlide);
-                autoSlide = setInterval(nextSlide,8000);
+        // ignore small moves and mostly-vertical scrolls
+        if(Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
 
-            }
+        if(dx < 0){
+            nextSlide();
+        }else{
+            prevSlide();
+        }
 
-        },120);
+        restartAuto();
 
-    });
+    }, {passive:true});
+
+    wrapper.addEventListener("touchcancel", () => {
+        touching = false;
+    }, {passive:true});
 
 });
 
@@ -604,7 +585,7 @@ else if(this.textContent.trim()==="Travel"){
 e.preventDefault();
 
 window.location.href=
-"product.html?category=backpack";
+"product.html?category=bagpack";
 
 }
 
