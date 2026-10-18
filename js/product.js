@@ -434,7 +434,7 @@ link:"product-detail.html?id=400"
 },
 {
 id:401,
-name:"",
+name:"The Chesterfield Handbag",
 category:"handbags",
 price:"₹4,799",
 image:"image/red-black-01.jpg",

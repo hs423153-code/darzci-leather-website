@@ -524,8 +524,8 @@ const products = {
   },
 
   401: {
-    name: "",
-    price: "₹1,499",
+    name: "The Chesterfield Handbag",
+    price: "₹4,799",
     images: [
       "image/red-black-01.jpg",
       "image/red-black-02.jpg",
@@ -542,7 +542,7 @@ const products = {
      bgVideo: "video/red-black-vid.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
-   "Hello Darzci, I want to order luxury leather trolley (Product ID: 401)"
+   "Hello Darzci, I want to order The Chesterfield Handbag (Product ID: 401)"
   },
 
   402: {

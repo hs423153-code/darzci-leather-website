@@ -130,7 +130,7 @@ link:"product-detail.html?id=209"
 },
 {
 id:210,
-name:"Full Leathered bagpack",
+name:"Full Leathered Bagpack",
 category:"bagpack",
 price:"₹5,299",
 image:"image/brownie-main.jpg",
@@ -244,7 +244,7 @@ link:"product-detail.html?id=307"
 },
 // {
 // id:418,
-// name:"Darzci Premium Leather bagpack",
+// name:"Darzci Premium Leather Bagpack",
 // category:"duffel",
 // price:"₹5,199",
 // image:"image/black-bag.jpg",
@@ -434,7 +434,7 @@ link:"product-detail.html?id=400"
 },
 {
 id:401,
-name:"",
+name:"The Chesterfield Handbag",
 category:"handbags",
 price:"₹4,799",
 image:"image/red-black-01.jpg",
@@ -758,7 +758,7 @@ link:"product-detail.html?id=429"
 },
 // {
 // id:430,
-// name:"Darzci Premium Leather bagpack",
+// name:"Darzci Premium Leather Bagpack",
 // category:"handbags",
 // price:"₹5,199",
 // image:"image/stylish-black-01.jpg",
@@ -772,7 +772,7 @@ link:"product-detail.html?id=429"
 // },
 {
 id:431,
-name:"Darzci Premium Leather handbag",
+name:"Darzci Premium Leather Bagpack",
 category:"handbags",
 price:"₹5,199",
 image:"image/textured-01.jpg",
