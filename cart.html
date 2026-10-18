@@ -3,129 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Darzci — Cart</title>
+  <title>Darzci — Shopping Cart</title>
   <link rel="stylesheet" href="css/cart.css" />
 </head>
 <body>
- <!-- =========================================
-                CART HERO
+
+<!-- =========================================
+                TOP BAR
 ========================================= -->
 
-<section class="cart-hero">
-
-  <p class="cart-tag">
-    YOUR SELECTIONS
-  </p>
-
-  <h1>
-    Shopping Cart
-  </h1>
-
-  <p class="cart-sub">
-    Review your handcrafted luxury pieces
-    before placing your WhatsApp order.
-  </p>
-
-</section>
-
+<header class="cart-topbar">
+  <a href="index.html" class="topbar-brand">DARZCI</a>
+  <a href="product.html" class="topbar-link">Continue Shopping</a>
+</header>
 
 
 <!-- =========================================
-                CART SECTION
+                CART LAYOUT
 ========================================= -->
 
-<section class="cart-section container">
+<main class="cart-section">
 
-  <!-- PRODUCTS -->
+  <!-- LEFT : CART ITEMS -->
 
-  <div
-    class="cart-products"
-    id="cartProducts">
+  <div class="cart-main">
+
+    <div class="cart-panel">
+
+      <div class="cart-panel-head">
+        <div>
+          <p class="cart-tag">YOUR SELECTIONS</p>
+          <h1>Shopping Cart</h1>
+        </div>
+        <span class="price-label">Price</span>
+      </div>
+
+      <div class="cart-products" id="cartProducts"></div>
+
+      <p class="cart-subtotal-line" id="bottomLine">
+        Subtotal (0 items): <strong>₹0</strong>
+      </p>
+
+    </div>
 
   </div>
 
 
+  <!-- RIGHT : SUMMARY -->
 
-  <!-- SUMMARY -->
+  <aside class="cart-summary">
 
-  <div class="cart-summary">
+    <p class="summary-tag">ORDER SUMMARY</p>
 
-    <p class="summary-tag">
-      ORDER SUMMARY
+    <p class="delivery-note">
+      <span class="tick">✔</span>
+      Your order is eligible for FREE Delivery.
+    </p>
+
+    <p class="summary-line" id="summaryLine">
+      Subtotal (0 items): <strong>₹0</strong>
     </p>
 
     <div class="summary-row">
-
-      <span>Subtotal</span>
-
-      <span id="subtotal">
-        ₹0
-      </span>
-
-    </div>
-
-    <div class="summary-row">
-
       <span>Shipping</span>
-
-      <span>
-        Free
-      </span>
-
+      <span class="free">Free</span>
     </div>
 
     <div class="summary-total">
-
       <span>Total</span>
-
-      <span id="total">
-        ₹0
-      </span>
-
+      <span id="total">₹0</span>
     </div>
 
-
-    <!-- WHATSAPP -->
-
-    <a
-      href="#"
-      class="whatsapp-btn"
-      id="whatsappOrder">
-
+    <a href="#" class="whatsapp-btn" id="whatsappOrder">
       Order Via WhatsApp
-
     </a>
 
-  </div>
+  </aside>
 
-  <section class="recommended-products container">
+</main>
+
+
+<!-- =========================================
+        YOU MAY ALSO LIKE / BEST SELLERS
+========================================= -->
+
+<section class="recommended-products">
 
   <div class="section-header">
     <h2>You May Also Like</h2>
   </div>
 
-  <div class="product-track" id="recommendationGrid">
+  <div class="product-track" id="recommendationGrid"></div>
 
+</section>
+
+<section class="recommended-products">
+
+  <div class="section-header">
+    <h2>Best Sellers</h2>
   </div>
 
-</section>
-
-  <section class="recommended-products container">
-
-    <div class="section-header">
-        <h2>Best Sellers</h2>
-    </div>
-
-    <div class="product-track"
-         id="bestSellerGrid">
-
-    </div>
+  <div class="product-track" id="bestSellerGrid"></div>
 
 </section>
 
-</section>
-</body>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
+</body>
 </html>
-
