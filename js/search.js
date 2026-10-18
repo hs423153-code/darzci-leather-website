@@ -1,5 +1,4 @@
-
- const products = [
+const products = [
 
 {
 id:201,
@@ -1050,6 +1049,8 @@ function closeSearch(){
 
 searchPanel.classList.remove("active");
 
+searchPanel.classList.remove("searching");
+
 searchOverlay.classList.remove("active");
 
 document.body.style.overflow="";
@@ -1197,6 +1198,9 @@ function performSearch(keyword){
 
     keyword = keyword.trim().toLowerCase();
 
+    // hide "Popular Searches" while user is typing (gives space to results)
+    searchPanel.classList.toggle("searching", keyword !== "");
+
     if(keyword === ""){
 
         searchResults.innerHTML = "";
@@ -1343,6 +1347,8 @@ searchInput.addEventListener("focus",()=>{
 function resetSearch(){
 
     searchInput.value="";
+
+    searchPanel.classList.remove("searching");
 
     searchResults.innerHTML="";
 

@@ -1,4 +1,3 @@
-
 // ================================
 // HERO SLIDER
 // ================================
@@ -232,7 +231,38 @@ container.style.backgroundImage =
 `url('${destinations[index].bg}')`;
 
 
+// MOBILE: slide the cards strip left-to-right so the active card is visible
+scrollActiveTravelCard(index);
+
+
 }
+
+
+function scrollActiveTravelCard(index){
+
+if(window.innerWidth > 1000) return;
+
+const strip = document.querySelector(".travel-cards");
+
+const card = cards[index];
+
+if(!strip || !card) return;
+
+// scroll only the strip horizontally (page does not jump up/down)
+const left =
+card.offsetLeft -
+(strip.clientWidth - card.offsetWidth) / 2;
+
+strip.scrollTo({
+left: left,
+behavior: "smooth"
+});
+
+}
+
+
+// show first destination background right away (was blank till first slide)
+updateTravel(0);
 
 
 cards.forEach(card=>{
@@ -295,41 +325,69 @@ const mobileToggle = document.getElementById("mobileToggle");
 const mainNav = document.getElementById("mainNav");
 const menuBackdrop = document.getElementById("menuBackdrop");
 
-if (mobileToggle && mainNav) {
+function setMenu(open){
+
+    if(!mainNav || !mobileToggle) return;
+
+    mainNav.classList.toggle("active", open);
+
+    mobileToggle.classList.toggle("active", open);
+
+    if(menuBackdrop){
+        menuBackdrop.classList.toggle("active", open);
+    }
+
+    document.body.classList.toggle("menu-open", open);
+
+    mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
+
+}
+
+if(mobileToggle && mainNav){
+
+    mobileToggle.setAttribute("aria-label", "Menu");
+
+    // Close button inside the drawer
+    // (the header sits under the drawer when it is open)
+    if(!mainNav.querySelector(".drawer-close")){
+
+        const closeBtn = document.createElement("button");
+
+        closeBtn.type = "button";
+        closeBtn.className = "drawer-close";
+        closeBtn.setAttribute("aria-label", "Close menu");
+        closeBtn.innerHTML = "<span></span><span></span>";
+
+        mainNav.insertBefore(closeBtn, mainNav.firstChild);
+
+    }
 
     mobileToggle.addEventListener("click", () => {
+        setMenu(!mainNav.classList.contains("active"));
+    });
 
-        mainNav.classList.toggle("active");
+    // close on X button or when a link is tapped
+    mainNav.addEventListener("click", (e) => {
 
-        if (menuBackdrop) {
-            menuBackdrop.classList.toggle("active");
+        if(e.target.closest(".drawer-close") || e.target.closest("a")){
+            setMenu(false);
         }
 
-        document.body.classList.toggle("menu-open");
-
-        mobileToggle.innerHTML = mainNav.classList.contains("active")
-            ? "✕"
-            : "☰";
-
     });
 
 }
 
-if (menuBackdrop && mainNav && mobileToggle) {
-
-    menuBackdrop.addEventListener("click", () => {
-
-        mainNav.classList.remove("active");
-
-        menuBackdrop.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
-
-        mobileToggle.innerHTML = "☰";
-
-    });
-
+if(menuBackdrop){
+    menuBackdrop.addEventListener("click", () => setMenu(false));
 }
+
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape") setMenu(false);
+});
+
+window.addEventListener("resize", () => {
+    if(window.innerWidth > 768) setMenu(false);
+});
 
 /* ==========================================
       DARZCI TESTIMONIAL SLIDER V1
@@ -345,12 +403,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let current = 0;
 
+    // ---- mobile slide animation (own animation: works in every browser,
+    //      no dependence on smooth-scroll + scroll-snap behaviour) ----
+    let animId = null;
+    let isAnimating = false;
+
+    function stopSlideAnimation(){
+
+        cancelAnimationFrame(animId);
+
+        if(isAnimating){
+            isAnimating = false;
+            wrapper.style.scrollSnapType = "";   // give snapping back
+        }
+
+    }
+
+    function slideTo(left){
+
+        stopSlideAnimation();
+
+        const from = wrapper.scrollLeft;
+        const dist = left - from;
+
+        if(Math.abs(dist) < 2){
+            wrapper.scrollLeft = left;
+            return;
+        }
+
+        const duration = 650;
+        const start = performance.now();
+
+        isAnimating = true;
+
+        // snapping off while we animate, otherwise it fights every step
+        wrapper.style.scrollSnapType = "none";
+
+        function step(now){
+
+            const p = Math.min((now - start) / duration, 1);
+
+            const eased = 1 - Math.pow(1 - p, 3);
+
+            wrapper.scrollLeft = from + dist * eased;
+
+            if(p < 1){
+                animId = requestAnimationFrame(step);
+            }else{
+                isAnimating = false;
+                wrapper.style.scrollSnapType = "";
+            }
+
+        }
+
+        animId = requestAnimationFrame(step);
+
+    }
+
     function updateSlider(){
 
         if(window.innerWidth <= 768){
 
-            // MOBILE
-            track.style.transform = `translateX(-${current * 100}%)`;
+            // MOBILE (native scroll-snap carousel: swipe + auto slide)
+            track.style.transform = "none";
+
+            slideTo(cards[current].offsetLeft);
 
             cards.forEach(card=>card.classList.remove("active"));
 
@@ -397,7 +514,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    window.addEventListener("resize",updateSlider);
+    let lastWidth = window.innerWidth;
+
+    window.addEventListener("resize",()=>{
+
+        if(window.innerWidth === lastWidth) return;
+
+        lastWidth = window.innerWidth;
+
+        stopSlideAnimation();
+
+        wrapper.scrollLeft = 0;
+
+        updateSlider();
+
+    });
+
+    // user touches the slider -> stop our animation, he is in control
+    wrapper.addEventListener("touchstart",stopSlideAnimation,{passive:true});
+
+    // keep "current" in sync when the user swipes by hand (mobile)
+    let swipeTimer;
+
+    wrapper.addEventListener("scroll",()=>{
+
+        if(window.innerWidth > 768 || isAnimating) return;
+
+        clearTimeout(swipeTimer);
+
+        swipeTimer = setTimeout(()=>{
+
+            const step = cards[1]
+                ? cards[1].offsetLeft - cards[0].offsetLeft
+                : cards[0].offsetWidth;
+
+            const index = Math.round(wrapper.scrollLeft / step);
+
+            if(cards[index] && index !== current){
+
+                current = index;
+
+                cards.forEach(card=>card.classList.remove("active"));
+
+                cards[current].classList.add("active");
+
+                // restart auto-slide timer after a manual swipe
+                clearInterval(autoSlide);
+                autoSlide = setInterval(nextSlide,8000);
+
+            }
+
+        },120);
+
+    });
 
 });
 
