@@ -1088,3 +1088,240 @@ main{
 
 }
 
+/* ==========================================================
+   DARZCI HAMBURGER + MENU DRAWER (mobile)
+   (keep this block at the very end of the file)
+========================================================== */
+
+/* drawer close button exists only on mobile */
+.drawer-close{
+    display:none;
+}
+
+body.menu-open{
+    overflow:hidden;
+}
+
+@media (max-width:768px){
+
+    /* ---------- HAMBURGER BUTTON ---------- */
+
+    .mobile-toggle{
+        display:block;
+        position:relative;
+        left:0;
+        width:44px;
+        height:44px;
+        padding:0;
+        margin:0;
+        font-size:0;            /* hides the old ☰ / ✕ text */
+        line-height:0;
+        color:transparent;
+        border:1px solid rgba(199,165,106,.55);
+        border-radius:50%;
+        cursor:pointer;
+        /* middle (gold) line + soft white base */
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 14px 2px,
+            #fff;
+        box-shadow:0 4px 14px rgba(0,0,0,.07);
+        transition:
+            background-size .3s ease,
+            border-color .3s ease,
+            box-shadow .3s ease,
+            transform .3s ease;
+        -webkit-tap-highlight-color:transparent;
+    }
+
+    /* top + bottom lines */
+    .mobile-toggle::before,
+    .mobile-toggle::after{
+        content:"";
+        position:absolute;
+        left:50%;
+        width:20px;
+        height:2px;
+        border-radius:2px;
+        background:#111;
+        transform:translateX(-50%);
+        transition:
+            top .3s ease,
+            transform .3s ease,
+            background .3s ease;
+    }
+
+    .mobile-toggle::before{
+        top:13px;
+    }
+
+    .mobile-toggle::after{
+        top:29px;
+    }
+
+    .mobile-toggle:hover{
+        transform:none;
+        border-color:#c7a56a;
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 20px 2px,
+            #fff;
+    }
+
+    /* open state -> X */
+    .mobile-toggle.active{
+        border-color:#c7a56a;
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 0 2px,
+            #fff;
+    }
+
+    .mobile-toggle.active::before{
+        top:21px;
+        transform:translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-toggle.active::after{
+        top:21px;
+        transform:translateX(-50%) rotate(-45deg);
+    }
+
+
+    /* ---------- DRAWER ---------- */
+
+    /* fully hidden when closed (no peeking on swipe) */
+    .main-nav{
+        right:0;
+        width:320px;
+        max-width:86vw;
+        height:100vh;
+        height:100dvh;
+        background:#faf6ee;
+        overflow-y:auto;
+        transform:translateX(105%);
+        visibility:hidden;
+        pointer-events:none;
+        box-shadow:none;
+        transition:
+            transform .4s cubic-bezier(.4,0,.2,1),
+            visibility 0s linear .4s,
+            box-shadow .4s;
+    }
+
+    .main-nav.active{
+        transform:translateX(0);
+        visibility:visible;
+        pointer-events:auto;
+        box-shadow:-18px 0 50px rgba(0,0,0,.20);
+        transition:
+            transform .4s cubic-bezier(.4,0,.2,1),
+            visibility 0s,
+            box-shadow .4s;
+    }
+
+    /* brand header */
+    .main-nav::before{
+        content:"DARZCI";
+        height:96px;
+        padding:0 28px;
+        font-family:"Playfair Display",serif;
+        font-size:24px;
+        font-weight:600;
+        letter-spacing:7px;
+        color:#e9d29b;
+        background:linear-gradient(135deg,#1b1b1b,#000);
+        border-bottom:3px solid #c7a56a;
+    }
+
+    /* close button */
+    .main-nav .drawer-close{
+        display:block;
+        position:absolute;
+        top:28px;
+        right:20px;
+        left:auto;
+        width:40px;
+        height:40px;
+        padding:0;
+        border:1px solid rgba(233,210,155,.5);
+        border-radius:50%;
+        background:transparent;
+        cursor:pointer;
+        z-index:3;
+        transform:none;
+    }
+
+    .main-nav .drawer-close:hover{
+        background:rgba(233,210,155,.15);
+        transform:none;
+    }
+
+    .drawer-close span{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:16px;
+        height:2px;
+        border-radius:2px;
+        background:#e9d29b;
+    }
+
+    .drawer-close span:first-child{
+        transform:translate(-50%,-50%) rotate(45deg);
+    }
+
+    .drawer-close span:last-child{
+        transform:translate(-50%,-50%) rotate(-45deg);
+    }
+
+    /* links */
+    .main-nav .nav-link{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:20px 26px;
+        font-family:"Playfair Display",serif;
+        font-size:19px;
+        font-weight:600;
+        color:#111;
+        border-bottom:1px solid rgba(0,0,0,.07);
+        transition:background .3s, color .3s, padding .3s;
+    }
+
+    .main-nav .nav-link::after{
+        content:"→";
+        position:static;
+        width:auto;
+        height:auto;
+        background:none;
+        color:#c7a56a;
+        font-family:"Inter",sans-serif;
+        font-size:18px;
+        transition:transform .3s;
+    }
+
+    .main-nav .nav-link:hover,
+    .main-nav .nav-link:active{
+        background:rgba(199,165,106,.13);
+        color:#9f7b3f;
+        padding-left:32px;
+    }
+
+    .main-nav .nav-link:hover::after,
+    .main-nav .nav-link:active::after{
+        width:auto;
+        transform:translateX(4px);
+    }
+
+    /* footer */
+    .main-nav::after{
+        content:"PREMIUM LEATHER CRAFT\A © 2026 Darzci";
+        white-space:pre-line;
+        line-height:1.9;
+        padding:22px 18px;
+        font-size:12px;
+        letter-spacing:2px;
+        color:#9f7b3f;
+        background:transparent;
+        border-top:1px solid rgba(0,0,0,.08);
+    }
+}
+

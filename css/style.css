@@ -5350,3 +5350,690 @@ section{
 }
 
 }
+
+
+/* ==========================================================
+   MOBILE: 2 SMALLER PRODUCT CARDS + LEFT-TO-RIGHT SCROLL
+   (Featured Collection + Best Sellers)
+   Keep this block at the very end of the file.
+========================================================== */
+
+@media (max-width:768px){
+
+  /* ---------- SCROLL ROW ---------- */
+
+  .featured .product-track,
+  .bestseller-track{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    gap:12px;
+    padding:0 14px 14px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:14px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* ---------- EXACTLY 2 CARDS VISIBLE ---------- */
+
+  .featured .product-card,
+  .bestseller-card{
+    flex:0 0 calc((100% - 12px) / 2);
+    min-width:0;
+    max-width:calc((100% - 12px) / 2);
+    scroll-snap-align:start;
+    border-radius:14px;
+  }
+
+  /* "And Many More" end card */
+
+  .featured .product-track .section-header{
+    flex:0 0 calc((100% - 12px) / 2);
+    max-width:calc((100% - 12px) / 2);
+    scroll-snap-align:start;
+    border-radius:14px;
+    padding:14px;
+  }
+
+  .featured .product-track .section-header h1{
+    font-size:18px;
+    padding-top:0;
+    line-height:1.35;
+  }
+
+  /* ---------- SMALLER IMAGES / VIDEOS ---------- */
+
+  .featured .product-card img,
+  .featured .product-card video,
+  .bestseller-card .bestseller-media,
+  .bestseller-card .bestseller-media img,
+  .bestseller-card .bestseller-media video{
+    height:150px;
+    border-radius:14px 14px 0 0;
+  }
+
+  /* ---------- SMALLER TEXT ---------- */
+
+  .featured .product-card h3,
+  .bestseller-card h3{
+    font-size:13px;
+    line-height:1.35;
+    padding:10px 10px 4px;
+    min-height:40px;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .featured .price,
+  .bestseller-card .bestseller-price{
+    font-size:14px;
+    padding:0 10px 8px;
+  }
+
+  /* ---------- SMALLER BUTTON ---------- */
+
+  .featured .product-card button{
+    display:block;
+    width:100%;
+    padding:0;
+    border:none;
+    background:transparent;
+  }
+
+  .featured .product-card .btn,
+  .bestseller-card .btn{
+    display:block;
+    width:calc(100% - 20px);
+    margin:0 10px 12px;
+    padding:8px 6px;
+    font-size:12px;
+    text-align:center;
+    box-sizing:border-box;
+  }
+
+  .bestseller-card .best-badge{
+    top:8px;
+    left:8px;
+    font-size:9px;
+    padding:4px 8px;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE SEARCH FIX: more space for product results
+   (keep this block at the very end of the file)
+========================================================== */
+
+/* results area must be allowed to shrink and scroll inside the flex panel */
+.search-results{
+    min-height:0;
+}
+
+@media (max-width:768px){
+
+    /* real visible height on mobile browsers (address bar safe) */
+    .search-panel{
+        height:100vh;
+        height:100dvh;
+    }
+
+    /* compact header */
+    .search-header{
+        padding:14px 20px;
+    }
+
+    .search-header h2{
+        font-size:22px;
+    }
+
+    /* compact search box */
+    .search-box{
+        padding:12px 20px;
+    }
+
+    .search-icon{
+        top:50%;
+        transform:translateY(-50%);
+    }
+
+    .search-box input{
+        height:48px;
+    }
+
+    /* Popular Searches: ONE slim scrollable row instead of wrapping rows */
+    .popular-search{
+        padding:4px 0 10px;
+    }
+
+    .popular-search h4{
+        display:none;
+    }
+
+    .popular-list{
+        flex-wrap:nowrap;
+        gap:8px;
+        overflow-x:auto;
+        padding:0 20px;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .popular-list::-webkit-scrollbar{
+        display:none;
+    }
+
+    .popular-item{
+        flex:0 0 auto;
+        padding:8px 14px;
+        font-size:13px;
+        white-space:nowrap;
+    }
+
+    /* while typing, hide the category chips completely */
+    .search-panel.searching .popular-search{
+        display:none;
+    }
+
+    /* results */
+    .search-results{
+        padding:8px 16px 30px;
+    }
+
+    .search-card{
+        margin-bottom:12px;
+        padding:10px;
+    }
+
+    .search-card img{
+        width:64px;
+        height:64px;
+    }
+
+    .search-info h3{
+        font-size:15px;
+        line-height:1.3;
+    }
+}
+
+
+/* ==========================================================
+   MOBILE: "INSPIRED BY DESTINATIONS" - horizontal auto slide
+   (keep this block at the very end of the file)
+========================================================== */
+
+@media (max-width:1000px){
+
+    .travel-showcase{
+        padding:60px 16px;
+    }
+
+    .travel-heading{
+        font-size:2.2rem;
+        text-align:center;
+        margin-bottom:30px;
+        letter-spacing:1px;
+    }
+
+    .travel-container{
+        height:auto;
+        min-height:520px;
+        padding:28px 0 36px;
+        border-radius:26px;
+        flex-direction:column;
+        align-items:stretch;
+        justify-content:flex-start;
+        gap:30px;
+    }
+
+    /* readable dark overlay top-to-bottom (desktop one goes left-to-right) */
+    .travel-container::before{
+        background:linear-gradient(
+            180deg,
+            rgba(0,0,0,.35) 0%,
+            rgba(0,0,0,.55) 45%,
+            rgba(0,0,0,.85) 100%
+        );
+    }
+
+    /* ----- cards: ONE row, scrolls left to right ----- */
+    .travel-cards{
+        flex-direction:row;
+        flex-wrap:nowrap;
+        justify-content:flex-start;
+        gap:14px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        padding:14px 20px 18px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .travel-cards::-webkit-scrollbar{
+        display:none;
+    }
+
+    .travel-card{
+        flex:0 0 150px;
+        width:150px;
+        height:100px;
+        border-radius:18px;
+        scroll-snap-align:center;
+    }
+
+    .travel-card span{
+        left:12px;
+        bottom:10px;
+        font-size:.9rem;
+    }
+
+    /* active card: highlight only, no sideways shift */
+    .travel-card.active{
+        transform:scale(1.06);
+        box-shadow:0 0 22px rgba(212,175,55,.65);
+    }
+
+    /* ----- text below cards ----- */
+    .travel-content{
+        position:relative;
+        right:auto;
+        max-width:100%;
+        padding:0 22px;
+        text-align:center;
+    }
+
+    .travel-content h3{
+        font-size:2.6rem;
+        letter-spacing:2px;
+        margin-bottom:14px;
+    }
+
+    .travel-content p{
+        font-size:15px;
+        line-height:1.7;
+        margin:0 auto 24px;
+        max-width:420px;
+    }
+
+    .travel-btn{
+        padding:14px 30px;
+        font-size:.95rem;
+    }
+}
+
+
+/* ==========================================================
+   FIX: SEARCH PANEL PEEKING IN WHEN SWIPING LEFT-TO-RIGHT
+   The closed panel was only pushed off-screen (right:-100%), so a
+   sideways swipe could reveal it. Now it is fully hidden when closed.
+   (keep this block at the very end of the file)
+========================================================== */
+
+.search-panel{
+    right:0;
+    transform:translateX(105%);
+    visibility:hidden;
+    pointer-events:none;
+    box-shadow:none;
+    transition:
+        transform .45s cubic-bezier(.4,0,.2,1),
+        visibility 0s linear .45s,
+        box-shadow .45s;
+}
+
+.search-panel.active{
+    transform:translateX(0);
+    visibility:visible;
+    pointer-events:auto;
+    box-shadow:-25px 0 60px rgba(0,0,0,.15);
+    transition:
+        transform .45s cubic-bezier(.4,0,.2,1),
+        visibility 0s,
+        box-shadow .45s;
+}
+
+/* ==========================================================
+   FIX: BEST SELLER CARDS ON MOBILE (padding, image, button)
+========================================================== */
+
+@media (max-width:768px){
+
+    .bestseller-card .bestseller-media{
+        height:150px;
+    }
+
+    .bestseller-card .bestseller-info{
+        padding:0;
+        min-height:0;
+        display:flex;
+        flex-direction:column;
+    }
+
+    .bestseller-card .bestseller-info h3{
+        font-size:13px;
+        line-height:1.35;
+        min-height:36px;
+        margin:0;
+        padding:10px 10px 4px;
+    }
+
+    .bestseller-card .bestseller-price{
+        font-size:14px;
+        margin:0;
+        padding:0 10px 8px;
+    }
+
+    .bestseller-card .bestseller-btn{
+        display:block;
+        width:calc(100% - 20px);
+        margin:0 10px 12px;
+        padding:9px 6px;
+        font-size:12px;
+        text-align:center;
+        white-space:nowrap;
+        box-sizing:border-box;
+        border-radius:30px;
+    }
+}
+
+
+/* ==========================================================
+   DARZCI HAMBURGER + MENU DRAWER (mobile)
+   (keep this block at the very end of the file)
+========================================================== */
+
+/* drawer close button exists only on mobile */
+.drawer-close{
+    display:none;
+}
+
+body.menu-open{
+    overflow:hidden;
+}
+
+@media (max-width:768px){
+
+    /* ---------- HAMBURGER BUTTON ---------- */
+
+    .mobile-toggle{
+        display:block;
+        position:relative;
+        left:0;
+        width:44px;
+        height:44px;
+        padding:0;
+        margin:0;
+        font-size:0;            /* hides the old ☰ / ✕ text */
+        line-height:0;
+        color:transparent;
+        border:1px solid rgba(199,165,106,.55);
+        border-radius:50%;
+        cursor:pointer;
+        /* middle (gold) line + soft white base */
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 14px 2px,
+            #fff;
+        box-shadow:0 4px 14px rgba(0,0,0,.07);
+        transition:
+            background-size .3s ease,
+            border-color .3s ease,
+            box-shadow .3s ease,
+            transform .3s ease;
+        -webkit-tap-highlight-color:transparent;
+    }
+
+    /* top + bottom lines */
+    .mobile-toggle::before,
+    .mobile-toggle::after{
+        content:"";
+        position:absolute;
+        left:50%;
+        width:20px;
+        height:2px;
+        border-radius:2px;
+        background:#111;
+        transform:translateX(-50%);
+        transition:
+            top .3s ease,
+            transform .3s ease,
+            background .3s ease;
+    }
+
+    .mobile-toggle::before{
+        top:13px;
+    }
+
+    .mobile-toggle::after{
+        top:29px;
+    }
+
+    .mobile-toggle:hover{
+        transform:none;
+        border-color:#c7a56a;
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 20px 2px,
+            #fff;
+    }
+
+    /* open state -> X */
+    .mobile-toggle.active{
+        border-color:#c7a56a;
+        background:
+            linear-gradient(#c7a56a,#c7a56a) no-repeat center / 0 2px,
+            #fff;
+    }
+
+    .mobile-toggle.active::before{
+        top:21px;
+        transform:translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-toggle.active::after{
+        top:21px;
+        transform:translateX(-50%) rotate(-45deg);
+    }
+
+
+    /* ---------- DRAWER ---------- */
+
+    /* fully hidden when closed (no peeking on swipe) */
+    .main-nav{
+        right:0;
+        width:320px;
+        max-width:86vw;
+        height:100vh;
+        height:100dvh;
+        background:#faf6ee;
+        overflow-y:auto;
+        transform:translateX(105%);
+        visibility:hidden;
+        pointer-events:none;
+        box-shadow:none;
+        transition:
+            transform .4s cubic-bezier(.4,0,.2,1),
+            visibility 0s linear .4s,
+            box-shadow .4s;
+    }
+
+    .main-nav.active{
+        transform:translateX(0);
+        visibility:visible;
+        pointer-events:auto;
+        box-shadow:-18px 0 50px rgba(0,0,0,.20);
+        transition:
+            transform .4s cubic-bezier(.4,0,.2,1),
+            visibility 0s,
+            box-shadow .4s;
+    }
+
+    /* brand header */
+    .main-nav::before{
+        content:"DARZCI";
+        height:96px;
+        padding:0 28px;
+        font-family:"Playfair Display",serif;
+        font-size:24px;
+        font-weight:600;
+        letter-spacing:7px;
+        color:#e9d29b;
+        background:linear-gradient(135deg,#1b1b1b,#000);
+        border-bottom:3px solid #c7a56a;
+    }
+
+    /* close button */
+    .main-nav .drawer-close{
+        display:block;
+        position:absolute;
+        top:28px;
+        right:20px;
+        left:auto;
+        width:40px;
+        height:40px;
+        padding:0;
+        border:1px solid rgba(233,210,155,.5);
+        border-radius:50%;
+        background:transparent;
+        cursor:pointer;
+        z-index:3;
+        transform:none;
+    }
+
+    .main-nav .drawer-close:hover{
+        background:rgba(233,210,155,.15);
+        transform:none;
+    }
+
+    .drawer-close span{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:16px;
+        height:2px;
+        border-radius:2px;
+        background:#e9d29b;
+    }
+
+    .drawer-close span:first-child{
+        transform:translate(-50%,-50%) rotate(45deg);
+    }
+
+    .drawer-close span:last-child{
+        transform:translate(-50%,-50%) rotate(-45deg);
+    }
+
+    /* links */
+    .main-nav .nav-link{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:20px 26px;
+        font-family:"Playfair Display",serif;
+        font-size:19px;
+        font-weight:600;
+        color:#111;
+        border-bottom:1px solid rgba(0,0,0,.07);
+        transition:background .3s, color .3s, padding .3s;
+    }
+
+    .main-nav .nav-link::after{
+        content:"→";
+        position:static;
+        width:auto;
+        height:auto;
+        background:none;
+        color:#c7a56a;
+        font-family:"Inter",sans-serif;
+        font-size:18px;
+        transition:transform .3s;
+    }
+
+    .main-nav .nav-link:hover,
+    .main-nav .nav-link:active{
+        background:rgba(199,165,106,.13);
+        color:#9f7b3f;
+        padding-left:32px;
+    }
+
+    .main-nav .nav-link:hover::after,
+    .main-nav .nav-link:active::after{
+        width:auto;
+        transform:translateX(4px);
+    }
+
+    /* footer */
+    .main-nav::after{
+        content:"PREMIUM LEATHER CRAFT\A © 2026 Darzci";
+        white-space:pre-line;
+        line-height:1.9;
+        padding:22px 18px;
+        font-size:12px;
+        letter-spacing:2px;
+        color:#9f7b3f;
+        background:transparent;
+        border-top:1px solid rgba(0,0,0,.08);
+    }
+}
+
+
+/* ==========================================================
+   FIX: TESTIMONIALS ON MOBILE
+   (card was cut on the left + hard-edged shadow box)
+   Now a clean swipe carousel; the script still auto-slides it.
+========================================================== */
+
+@media (max-width:768px){
+
+    .testi-wrapper{
+        overflow-x:auto;
+        overflow-y:hidden;
+        padding:0;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+
+    .testi-wrapper::-webkit-scrollbar{
+        display:none;
+    }
+
+    .testi-track{
+        gap:16px;
+        padding:12px 0 26px;
+        transform:none !important;   /* no more translateX drift */
+        transition:none;
+    }
+
+    .testi-card{
+        flex:0 0 100%;
+        min-width:100%;
+        max-width:100%;
+        scroll-snap-align:center;
+        animation:none;
+        /* shadow stays inside the card width: no clipped square */
+        box-shadow:0 14px 22px -14px rgba(0,0,0,.35);
+    }
+
+    .testi-card.active{
+        transform:none;
+        box-shadow:0 14px 22px -12px rgba(0,0,0,.5);
+    }
+
+    .testi-card:hover{
+        transform:none;
+    }
+
+    /* readable text on the dark active card */
+    .testi-card.active::before{
+        background:linear-gradient(
+            135deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,0)
+        );
+    }
+}
