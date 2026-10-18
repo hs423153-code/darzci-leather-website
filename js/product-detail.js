@@ -294,7 +294,7 @@ const products = {
   304: {
     name: "Tiger-Soul Leather Bag",
     category:"duffel",
-    price: "₹1,299",
+    price: "₹6,499",
     images: [
       "image/Leapord-01.jpg",
       "image/Leapord-02.jpg",
@@ -990,7 +990,7 @@ const products = {
   421: {
     name: "Premium Leathered cross bag",
     category:"handbags",
-    price: "₹1,899",
+    price: "₹3,499",
     images: [
       "image/oval-01.jpg",
       "image/oval-02.jpg",
@@ -1505,7 +1505,7 @@ const products = {
    "Dual Side Pockets",
    "Ergonomic Carry"
  ],
-     bgVideo: "",
+     bgVideo: "video/belts.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
    "Hello Darzci, I want to order Embroidered leather design (Product ID: 501)",
@@ -1526,7 +1526,7 @@ const products = {
    "",
    ""
  ],
-     bgVideo: "",
+     bgVideo: "video/belts.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
    "Hello Darzci, I want to order Vintage Leathered belt (Product ID: 502)",
@@ -1547,7 +1547,7 @@ const products = {
    "",
    ""
  ],
-     bgVideo: "",
+     bgVideo: "video/belts.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
    "Hello Darzci, I want to order  (Product ID: 503)",
@@ -1568,7 +1568,7 @@ const products = {
    "",
    ""
  ],
-     bgVideo: "",
+     bgVideo: "video/belts.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
    "Hello Darzci, I want to order Premium belt with Silver buckle (Product ID: 504)",
@@ -1589,7 +1589,7 @@ const products = {
    "",
    ""
  ],
-     bgVideo: "",
+     bgVideo: "video/belts.mp4",
     description: "Classic handmade premium leather wallet.",
     whatsappText:
    "Hello Darzci, I want to order Men's Brown Tooled Leather belt with Antique gold buckle (Product ID: 505)",

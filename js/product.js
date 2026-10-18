@@ -190,7 +190,7 @@ link:"product-detail.html?id=303"
 id:304,
 name:"Tiger-Soul Leather Bag",
 category:"duffel",
-price:"₹1,299",
+price:"₹6,499",
 image:"image/Leapord-01.jpg",
 
 rating:4.8,
@@ -662,7 +662,7 @@ link:"product-detail.html?id=420"
 id:421,
 name:"Premium leathered cross bag",
 category:"handbags",
-price:"₹1,899",
+price:"₹3,499",
 image:"image/oval-01.jpg",
 
 rating:4.8,
@@ -941,6 +941,7 @@ bestseller:false,
 
 link:"product-detail.html?id=505"
 },
+
 
 
 
