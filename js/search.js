@@ -261,7 +261,7 @@ link:"product-detail.html?id=307"
   // trolley /
 {
 id:309,
-name:"Leathered Dual treolley bagpack",
+name:"Leathered Dual Trolley bagpack",
 category:"trolley",
 price:"₹6,199",
 image:"image/Leapord-trolley-01.jpg",
@@ -316,12 +316,12 @@ link:"product-detail.html?id=311"
 // link:"product-detail.html?id=312"
 // },
 
-  // laptopbags  //
+  // Filebags  //
 
 {
 id:601,
 name:"Darzci Leathered Office Bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹2,499",
 image:"image/Office-01.jpg",
 
@@ -335,7 +335,7 @@ link:"product-detail.html?id=601"
 {
 id:602,
 name:"Leathered file bag for your profession",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,499",
 image:"image/Fade-red-01.jpg",
 
@@ -349,7 +349,7 @@ link:"product-detail.html?id=602"
 {
 id:603,
 name:"Premium leathered file bag for your luxuries",
-category:"laptopbags",
+category:"Filebags",
 price:"₹13,999",
 image:"image/orange-bag-01.jpg",
 
@@ -363,7 +363,7 @@ link:"product-detail.html?id=603"
 {
 id:604,
 name:"Leathered file bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,799",
 image:"image/professional-01.jpg",
 
@@ -377,7 +377,7 @@ link:"product-detail.html?id=604"
 {
 id:605,
 name:"Premium leathered file bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,699",
 image:"image/orange-01.jpg",
 
@@ -391,7 +391,7 @@ link:"product-detail.html?id=605"
 {
 id:606,
 name:"Leathered Travel or Duffel bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹9.999",
 image:"image/Brown-rang-01.jpg",
 
@@ -404,8 +404,8 @@ link:"product-detail.html?id=606"
 },
 {
 id:607,
-name:"Darzci Premium leather laptop Bag",
-category:"laptopbags",
+name:"Darzci Premium leather File Bag",
+category:"Filebags",
 price:"₹5,199",
 image:"image/dust-01.jpg",
 

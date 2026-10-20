@@ -595,7 +595,7 @@ else if(this.textContent.trim()==="Workspace"){
 e.preventDefault();
 
 window.location.href=
-"product.html?category=laptopbags";
+"product.html?category=Filebags";
 
 }
 

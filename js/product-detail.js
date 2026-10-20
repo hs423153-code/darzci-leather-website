@@ -26,6 +26,33 @@ const products = {
    "Hello Darzci, I want to order handcrafted Goat Skin Bagpack (Product ID: 201)"
   },
 
+  215: {
+    name: "Premium Unisex Tote Bag",
+    category:"bagpack",
+    price: "₹5,499",
+    images: [
+      "image/brown-dust-01.jpg",
+      "image/brown-dust-02.jpg",
+      "image/brown-dust-03.jpg",
+      "image/brown-dust-04.jpg",
+      "image/brown-dust-05.jpg",
+   ],
+  highlights:[
+   "Rugged distressed leather build",
+   "Structured heritage weekender design",
+   "Contrast crimpson interior lining",
+   "Antique brass hardware accents",
+   "Dual top handles and strap"
+ ],
+
+    bgVideo: "video/brown-dust-vid.mp4",
+    
+    story:"Effortless utility meets timeless design. ✨ Crafted with premium brown suede and rich leather detailing, this tote is built to carry your daily essentials without compromising on style. Featuring structured handles, an adjustable shoulder strap, and our signature DARZCI tag. 💼 Perfect for workdays, travel, and everything in between.#darzci",
+
+    whatsappText:
+   "Hello Darzci, I want to order handcrafted Goat Skin Bagpack (Product ID: 201)"
+  },
+
   202: {
     name: "Darzci Premium Leather Bagpack",
     category:"bagpack",
@@ -71,7 +98,7 @@ const products = {
   204: {
     name: "premium Leathered Unisex Bagpack (Black)",
     category:"bagpack",
-    price: "₹1,799",
+    price: "₹3,199",
     story: "Experience the difference of ultra-quality leather. This premium blueberry-hued bag seamlessly blends rugged roll-top utility with refined, world-class craftsmanship. Elevate your everyday carry",
     images: [
       "image/Blackberry-01.jpg",
@@ -87,7 +114,7 @@ const products = {
   205: {
     name: "premium Leathered Unisex Bagpack (Yellow)",
     category:"bagpack",
-    price: "₹1,799",
+    price: "₹3,199",
     images: [
       "image/Yellow-bag-01.jpg",
       "image/Yellow-bag-02.jpg",
@@ -102,7 +129,7 @@ const products = {
   206: {
     name: "Pure leathered crafted bagpack",
     category:"bagpack",
-    price: "₹1,599",
+    price: "₹3,199",
     images: [
       "image/Hammer-01.jpg",
       "image/Hammer-02.jpg",
@@ -117,7 +144,7 @@ const products = {
   207: {
     name: "Emerald Green Leathered Bagpack",
     category:"bagpack",
-    price: "₹3,199",
+    price: "₹2,199",
     images: [
       "image/greenry-01.jpg",
       "image/greenry-02.jpg",
@@ -316,7 +343,7 @@ const products = {
 
   305: {
     name: "",
-    price: "₹1,299",
+    price: "₹4,499",
     images: [
       "image/orange-strap-01.jpg",
       "image/orange-strap-02.jpg",
@@ -340,7 +367,7 @@ const products = {
  306: {
     name: "Leopard Artisan Duffel Bag",
     category:"duffel",
-    price: "₹1,499",
+    price: "₹5,499",
     images: [
       "image/Tigerskin-01.jpg",
       "image/Tigerskin-02.jpg",
@@ -364,7 +391,7 @@ const products = {
   307: {
     name: "Western bull skull printed Leather Duffel Bag",
     category:"duffel",
-    price: "₹1,499",
+    price: "₹6,499",
    images: [
       "image/Bull-01.jpg",
       "image/Bull-02.jpg",
@@ -409,7 +436,7 @@ const products = {
    "Hello Darzci, I want to order  (Product ID: 308)"
   },
   309: {
-    name: "Leathered Dual treolley bagpack",
+    name: "Leathered Dual Trolley bagpack",
     category:"trolley",
     price: "₹6,199",
     images: [
@@ -428,13 +455,13 @@ const products = {
      bgVideo: "video/Leapord-trolley-vid.mp4",
     description: "Travel isn't just a trip; it's an investment. Ours is crafted in 100% genuine croc-embossed leather. Experience luxury that lasts. ✨ Step into the world of luxury travel with our 100% genuine leather luggage. Featuring a stunning croc-embossed texture and timeless appeal, this isn't just a bag—it's an investment. Durable, stylish, and built to travel the world with you. Experience the difference genuine leather makes.",
     whatsappText:
-   "Hello Darzci, I want to order Leathered Dual treolley bagpack  (Product ID: 309)",
+   "Hello Darzci, I want to order Leathered Dual Trolley bagpack  (Product ID: 309)",
   },
 
   310: {
     name: "Premium leathered Trolley bag",
     category:"trolley",
-    price: "8,199",
+    price: "₹6,899",
    images: [
       "image/Textured-trolley-01.jpg",
       "image/Textured-trolley-02.jpg",
@@ -477,6 +504,28 @@ const products = {
    "Hello Darzci, I want to order Premium leathered luxury trolley bag (Product ID: 311)"
   },
 
+  313: {
+    name: "",
+    category:"trolley",
+    price: "₹",
+   images: [
+      "image/black-trol-01.jpg",
+      "image/black-trol-02.jpg",
+      "image/black-trol-03.jpg",
+      "image/black-trol-04.jpg",
+     ],
+  highlights:[
+   "Aritisianal Craftmanship",
+   "Premium Hardware",
+   "Large Main Compartment",
+   "Dual Side Pockets",
+   "Ergonomic Carry"
+ ],
+     bgVideo: "video/black-trol-vid.mp4",
+    description: "Travel in style with our luxury leather trolley — built for durability, class, and smooth movement wherever you go. Perfect for business trips and vacations. ✈️",
+    whatsappText:
+   "Hello Darzci, I want to order  (Product ID: 313)"
+  },
 //   312: {
 //     name: "",
 //     category:"trolley",
@@ -618,7 +667,7 @@ const products = {
 
   601: {
     name: "Darzci Leathered Office Bag",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹2,499",
     images: [
       "image/Office-01.jpg",
@@ -641,7 +690,7 @@ const products = {
 
   604: {
     name: "Leathered file bag",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹1,799",
     images: [
       "image/professional-01.jpg",
@@ -1104,7 +1153,7 @@ const products = {
 
   605: {
     name: "Premium Leathered File Bag",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹1,699",
     images: [
       "image/orange-01.jpg",
@@ -1357,7 +1406,7 @@ const products = {
 
    606: {
     name: "Leathered Travel or Duffel bag",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹9,999",
     images: [
       "image/Brown-rang-01.jpg",
@@ -1402,9 +1451,33 @@ const products = {
    reviews:"",
   },
 
+  440: {
+    name: "Croco Textured Leather Tote Bag",
+    category:"handbags",
+    price: "₹4,599",
+    images: [
+   "image/black-tote-01.jpg",
+   "image/black-tote-02.jpg",
+   "image/black-tote-03.jpg",
+   "image/black-tote-04.jpg",
+  ],
+  highlights:[
+   "Aritisianal Craftmanship",
+   "Premium Hardware",
+   "Large Main Compartment",
+   "Dual Side Pockets",
+   "Ergonomic Carry"
+ ],
+  bgVideo: "video/black-tote-vid.mp4",
+  story: "From boardroom meetings to coffee runs. 💼✨ Designed with dedicated compartments for your laptop, keys, and daily essentials— elegance meets effortless organization.",
+  whatsappText:
+   "Hello Darzci, I want to order Croco Textured Leather Tote Bag (Product ID: 440)",
+   reviews:"",
+  },
+
   607: {
-    name: "Darzci Premium leather laptop Bag",
-    category:"laptopbags",
+    name: "Darzci Premium leather File Bag",
+    category:"Filebags",
     price: "₹5,199",
     images: [
    "image/dust-01.jpg",
@@ -1422,7 +1495,7 @@ const products = {
   bgVideo: "video/dust-vid.mp4",
   story: "The Art of the Impression.  Make a statement without saying a word. Our premium leather tote blends rich forest green tones with a classic houndstooth finish. Designed for the woman who commands the room. 🌿   This is designed to maintain your legacy for generations...",
   whatsappText:
-   "Hello Darzci, I want to order Darzci Premium leather laptop Bag (Product ID: 607)",
+   "Hello Darzci, I want to order Darzci Premium leather File Bag (Product ID: 607)",
   reviews:[
     {
       name:"Ahmed Khan",
@@ -1444,7 +1517,7 @@ const products = {
 
 602: {
     name: "Leathered file bag for your profession",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹1,499",
     images: [
    "image/Fade-red-01.jpg",
@@ -1468,7 +1541,7 @@ const products = {
 
 603: {
     name: "Premium leathered file bag for your luxuries",
-    category:"laptopbags",
+    category:"Filebags",
     price: "₹13,999",
     images: [
    "image/orange-bag-01.jpg",
@@ -1488,6 +1561,31 @@ const products = {
   whatsappText:
    "Hello Darzci, I want to order Premium leathered file bag for your luxuries (Product ID: 603)",
   reviews:"",
+  },
+
+  608: {
+    name: "Premium Leathered File Bag",
+    category:"Filebags",
+    price: "₹2,499",
+    images: [
+   "image/black-lap-01.jpg",
+   "image/black-lap-02.jpg",
+   "image/black-lap-03.jpg",
+   "image/black-lap-04.jpg",
+  ],
+  highlights:[
+   "Sleek, Minimalist Profile",
+   "Dedicated Laptop Compartment",
+   "Quick-Access Pockets",
+   "Originalised Internal Storage",
+   "Sturdy Dual Carry Handles"
+ ],
+  bgVideo: "video/black-lap-vid.mp4",
+  story: "The Art of the Impression.  Make a statement without saying a word. Our premium leather tote blends rich forest green tones with a classic houndstooth finish. Designed for the woman who commands the room. 🌿   This is designed to maintain your legacy for generations...",
+  whatsappText:
+   "Hello Darzci, I want to order Premium Leathered File Bag (Product ID: 608)",
+  reviews:[
+  ]
   },
 
   501: {

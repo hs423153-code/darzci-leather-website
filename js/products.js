@@ -17,6 +17,21 @@ link:"product-detail.html?id=201"
 },
 
 {
+id:215,
+name:"Premium Unisex Tote Bag",
+category:"bagpack",
+price:"₹5,499",
+image:"image/brown-dust-01.jpg",
+
+rating:5.0,
+reviews:27,
+
+bestseller:false,
+
+link:"product-detail.html?id=215"
+},
+
+{
 id:202,
 name:"Darzci Premium Leather Bagpack",
 category:"bagpack",
@@ -48,7 +63,7 @@ link:"product-detail.html?id=203"
 id:204,
 name:"premium Leathered Unisex Bagpack (Black)",
 category:"bagpack",
-price:"₹1,799",
+price:"₹3,199",
 image:"image/Blackberry-01.jpg",
 
 rating:4.8,
@@ -62,7 +77,7 @@ link:"product-detail.html?id=204"
 id:205,
 name:"premium Leathered Unisex Bagpack (Yellow)",
 category:"bagpack",
-price:"₹1,799",
+price:"₹3,199",
 image:"image/Yellow-bag-01.jpg",
 
 rating:4.8,
@@ -76,7 +91,7 @@ link:"product-detail.html?id=205"
 id:206,
 name:"Pure leathered crafted bagpack",
 category:"bagpack",
-price:"₹1,599",
+price:"₹3,199",
 image:"image/Hammer-01.jpg",
 
 rating:5.0,
@@ -90,7 +105,7 @@ link:"product-detail.html?id=206"
 id:207,
 name:"Emerald Green Leathered Bagpack",
 category:"bagpack",
-price:"₹3,199",
+price:"₹2,199",
 image:"image/greenry-01.jpg",
 
 rating:4.8,
@@ -190,7 +205,7 @@ link:"product-detail.html?id=303"
 id:304,
 name:"Tiger-Soul Leather Bag",
 category:"duffel",
-price:"₹1,299",
+price:"₹6,499",
 image:"image/Leapord-01.jpg",
 
 rating:4.8,
@@ -204,7 +219,7 @@ link:"product-detail.html?id=304"
 id:305,
 name:"",
 category:"duffel",
-price:"₹1,299",
+price:"₹4,499",
 image:"image/orange-strap-01.jpg",
 
 rating:4.8,
@@ -218,7 +233,7 @@ link:"product-detail.html?id=305"
 id:306,
 name:"Leopard Artisan Duffel Bag",
 category:"duffel",
-price:"₹1,499",
+price:"₹5,499",
 image:"image/Tigerskin-01.jpg",
 
 rating:4.8,
@@ -232,7 +247,7 @@ link:"product-detail.html?id=306"
 id:307,
 name:"Western bull skull printed Leather Duffel Bag",
 category:"duffel",
-price:"₹1,499",
+price:"₹6,499",
 image:"image/Bull-01.jpg",
 
 rating:4.8,
@@ -260,7 +275,7 @@ link:"product-detail.html?id=307"
   // trolley /
 {
 id:309,
-name:"Leathered Dual treolley bagpack",
+name:"Leathered Dual Trolley bagpack",
 category:"trolley",
 price:"₹6,199",
 image:"image/Leapord-trolley-01.jpg",
@@ -273,10 +288,24 @@ bestseller:false,
 link:"product-detail.html?id=309"
 },
 {
+id:313,
+name:"",
+category:"trolley",
+price:"₹6,199",
+image:"image/black-trol-01.jpg",
+
+rating:4.8,
+reviews:36,
+
+bestseller:false,
+
+link:"product-detail.html?id=313"
+},
+{
 id:310,
 name:"Premium leathered Trolley bag",
 category:"trolley",
-price:"₹8,199",
+price:"₹6,899",
 image:"image/Textured-trolley-01.jpg",
 
 rating:4.8,
@@ -315,12 +344,12 @@ link:"product-detail.html?id=311"
 // link:"product-detail.html?id=312"
 // },
 
-  // laptopbags  //
+  // Filebags  //
 
 {
 id:601,
 name:"Darzci Leathered Office Bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹2,499",
 image:"image/Office-01.jpg",
 
@@ -334,7 +363,7 @@ link:"product-detail.html?id=601"
 {
 id:602,
 name:"Leathered file bag for your profession",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,499",
 image:"image/Fade-red-01.jpg",
 
@@ -348,7 +377,7 @@ link:"product-detail.html?id=602"
 {
 id:603,
 name:"Premium leathered file bag for your luxuries",
-category:"laptopbags",
+category:"Filebags",
 price:"₹13,999",
 image:"image/orange-bag-01.jpg",
 
@@ -362,7 +391,7 @@ link:"product-detail.html?id=603"
 {
 id:604,
 name:"Leathered file bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,799",
 image:"image/professional-01.jpg",
 
@@ -376,7 +405,7 @@ link:"product-detail.html?id=604"
 {
 id:605,
 name:"Premium leathered file bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹1,699",
 image:"image/orange-01.jpg",
 
@@ -390,7 +419,7 @@ link:"product-detail.html?id=605"
 {
 id:606,
 name:"Leathered Travel or Duffel bag",
-category:"laptopbags",
+category:"Filebags",
 price:"₹9.999",
 image:"image/Brown-rang-01.jpg",
 
@@ -403,8 +432,8 @@ link:"product-detail.html?id=606"
 },
 {
 id:607,
-name:"Darzci Premium leather laptop Bag",
-category:"laptopbags",
+name:"Darzci Premium leather File Bag",
+category:"Filebags",
 price:"₹5,199",
 image:"image/dust-01.jpg",
 
@@ -414,6 +443,20 @@ reviews:31,
 bestseller:true,
 
 link:"product-detail.html?id=607"
+},
+{
+id:608,
+name:"Premium Leathered File Bag",
+category:"Filebags",
+price:"₹2,499",
+image:"image/black-lap-01.jpg",
+
+rating:4.8,
+reviews:18,
+
+bestseller:true,
+
+link:"product-detail.html?id=608"
 },
 
 
@@ -431,6 +474,20 @@ reviews:42,
 bestseller:false,
 
 link:"product-detail.html?id=400"
+},
+{
+id:440,
+name:"Croco Textured Leather Tote Bag",
+category:"handbags",
+price:"₹4,599",
+image:"image/black-tote-01.jpg",
+
+rating:4.8,
+reviews:32,
+
+bestseller:false,
+
+link:"product-detail.html?id=440"
 },
 {
 id:401,
@@ -662,7 +719,7 @@ link:"product-detail.html?id=420"
 id:421,
 name:"Premium leathered cross bag",
 category:"handbags",
-price:"₹1,899",
+price:"₹3,499",
 image:"image/oval-01.jpg",
 
 rating:4.8,
@@ -941,10 +998,6 @@ bestseller:false,
 
 link:"product-detail.html?id=505"
 },
-
-
-
-
 
 
 ];
