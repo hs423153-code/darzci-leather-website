@@ -505,9 +505,9 @@ const products = {
   },
 
   313: {
-    name: "",
+    name: "Croco-Embossed Executive Cabin Trolley",
     category:"trolley",
-    price: "₹",
+    price: "₹8,899",
    images: [
       "image/black-trol-01.jpg",
       "image/black-trol-02.jpg",
@@ -515,16 +515,16 @@ const products = {
       "image/black-trol-04.jpg",
      ],
   highlights:[
-   "Aritisianal Craftmanship",
-   "Premium Hardware",
-   "Large Main Compartment",
-   "Dual Side Pockets",
-   "Ergonomic Carry"
+   "Premium Crocodile-Pattern Finish",
+   "Dedicated Quick-Access",
+   "Smooth 360° Maneuverability",
+   "Optimized Cabin Dimensions",
+   "Durable Hardware & Dual Carry Options"
  ],
      bgVideo: "video/black-trol-vid.mp4",
     description: "Travel in style with our luxury leather trolley — built for durability, class, and smooth movement wherever you go. Perfect for business trips and vacations. ✈️",
     whatsappText:
-   "Hello Darzci, I want to order  (Product ID: 313)"
+   "Hello Darzci, I want to order Croco-Embossed Executive Cabin Trolley (Product ID: 313)"
   },
 //   312: {
 //     name: "",

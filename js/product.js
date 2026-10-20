@@ -289,9 +289,9 @@ link:"product-detail.html?id=309"
 },
 {
 id:313,
-name:"",
+name:"Croco-Embossed Executive Cabin Trolley",
 category:"trolley",
-price:"₹6,199",
+price:"₹8,899",
 image:"image/black-trol-01.jpg",
 
 rating:4.8,
@@ -998,11 +998,6 @@ bestseller:false,
 
 link:"product-detail.html?id=505"
 },
-
-
-
-
-
 
 
 ];
