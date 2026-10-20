@@ -33,7 +33,6 @@ const products = {
     images: [
       "image/brown-dust-01.jpg",
       "image/brown-dust-02.jpg",
-      "image/brown-dust-03.jpg",
       "image/brown-dust-04.jpg",
       "image/brown-dust-05.jpg",
    ],
